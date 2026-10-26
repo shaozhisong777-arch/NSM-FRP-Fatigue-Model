@@ -1,7 +1,8 @@
-% Shared parameter script. Set kind to strip or rod before running.
-% Default: strip. Run parameters to load variables into the current workspace.
+function parameters(kind)
+% Define parameters locally. No output is returned to the caller.
+% Local variables are not shared with other functions.
 
-if ~exist('kind', 'var') || isempty(kind)
+if nargin < 1 || isempty(kind)
     kind = 'strip';
 end
 kind = lower(char(kind));
@@ -112,3 +113,4 @@ verbose = true;
 computeCapacity = true;
 outputDir = fullfile(fileparts(mfilename('fullpath')), ['results_20_NSM_shear_' kind]);
 sourceNotes = struct();
+end
