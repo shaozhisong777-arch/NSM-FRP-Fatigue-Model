@@ -112,5 +112,8 @@ function p = parameters(kind)
     p.verbose = true;
     p.computeCapacity = true;
     p.outputDir = fullfile(fileparts(mfilename('fullpath')), ['results_20_NSM_shear_' kind]);
+    % Metadata required by the calculation and export functions.
+    p.calibrationStatus = 'not_calibrated_for_NSM_shear_fatigue';
+    p.codeVersion = 'original20-readable-v2';
     p.sourceNotes = struct();
 end
