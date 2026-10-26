@@ -1,0 +1,22 @@
+{
+  "runtime": "GNU Octave 10.3.0",
+  "file_count": 20,
+  "status": "runout_at_Nmax",
+  "last_cycle": 10000,
+  "history_rows": 503,
+  "PNG_count": 10,
+  "max_global_residual_N": 0.04964885632216465,
+  "max_local_residual_N": 1.7189449863508344e-10,
+  "final_q_mm": 0.5051302418177233,
+  "V_Vc_Vs_Vnsm_N": [
+    90000.00001323262,
+    32255.061435606407,
+    33362.57505506492,
+    24382.363522561296
+  ],
+  "same_parameter_style_regression_max_abs_diff": 0.0,
+  "repeated_default_history_identical": true,
+  "MATLAB_tested": false,
+  "PST_Green_equation7_implemented": false,
+  "experimental_shear_fatigue_calibration": false
+}

@@ -1,0 +1,25 @@
+warning: using the gnuplot graphics toolkit is discouraged
+
+The gnuplot graphics toolkit is not actively maintained and has a number
+of limitations that are unlikely to be fixed.  Communication with gnuplot
+uses a one-directional pipe and limited information is passed back to the
+Octave interpreter so most changes made interactively in the plot window
+will not be reflected in the graphics properties managed by Octave.  For
+example, if the plot window is closed with a mouse click, Octave will not
+be notified and will not update its internal list of open figure windows.
+The qt toolkit is recommended instead.
+N=1000/10000, q=0.501028 mm, force residual=0.0226 N
+N=2000/10000, q=0.502256 mm, force residual=0.037 N
+N=3000/10000, q=0.502976 mm, force residual=0.00403 N
+N=4000/10000, q=0.50349 mm, force residual=0.0493 N
+N=5000/10000, q=0.503888 mm, force residual=0.00634 N
+N=6000/10000, q=0.504213 mm, force residual=0.0341 N
+N=7000/10000, q=0.50449 mm, force residual=0.00668 N
+N=8000/10000, q=0.504729 mm, force residual=0.0378 N
+N=9000/10000, q=0.50494 mm, force residual=0.0352 N
+N=10000/10000, q=0.50513 mm, force residual=1.32e-05 N
+strip NSM shear: runout_at_Nmax; last balanced cycle=10000
+V=90000 N = Vc 32255.1 + Vs 33362.6 + Vnsm 24382.4; q=0.50513 mm
+Crossed NSM lines per face=2, faces=2; calibration=not_calibrated_for_NSM_shear_fatigue
+warning: your version of GraphicsMagick limits images to 8 bits per pixel
+error: ignoring const execution_exception& while preparing to exit

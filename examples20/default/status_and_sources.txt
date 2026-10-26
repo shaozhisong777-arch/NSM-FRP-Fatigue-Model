@@ -1,0 +1,22 @@
+version=original20-readable-v2
+status=runout_at_Nmax
+lastBalancedCycle=10000
+failureCycle=NaN
+failureBracket=[NaN,NaN]
+historyRows=503
+snapshots=6
+calibration=not_calibrated_for_NSM_shear_fatigue
+Q is total actuator load; V=Q/2; T is one physical NSM bar axial force.
+Qmax_N=180000
+Qmin_N=30000
+rod/strip fatigue k=0.1985
+activationFraction=0.75
+maxGlobalForceResidual_N=0.0496489
+maxLocalForceResidual_N=1.71894e-10
+Reaching Nmax is a runout, not a measured fatigue life. q is crack jump, not midspan deflection.
+shear: Chen and Cheng 2019, DOI 10.1061/(ASCE)CC.1943-5614.0000953; angle Eq.2, two-sided compatibility Eqs.9d,11
+fatigue: Chen et al. 2019, DOI 10.1016/j.ijfatigue.2019.04.039; Eq.2: rod 0.1965, strip 0.1985, activation 0.75*deltaM
+limit: Inherited prescribed crack shape and empirical Vc; PST/Green-function crack-opening Eq.7 NOT implemented
+residual: Numerical extension: residual=min(tauR,currentPeak) if peak degrades below tauR; not a new calibrated material law
+bar_1_failed=0, reason=
+bar_2_failed=0, reason=

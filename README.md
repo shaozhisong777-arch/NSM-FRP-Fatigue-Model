@@ -1,22 +1,20 @@
-# NSM 抗剪疲劳模型（中文重组版）
+# NSM抗剪疲劳：原20文件逐文件简化版（当前v2）
+
+本版按用户要求，以原始20文件逐个修改，文件名和主要接口不变，不再采用上一版13文件重组。
 
 ## 下载
 
-打开以下文件后，点击 GitHub 的 **Download raw / 下载原始文件**：
+- [最新完整20文件代码、中文说明与示例](downloads/NSM_20files_complete.zip)
+- [仅20个MATLAB源文件](downloads/NSM_20files_code_only.zip)
+- [中文Word：20文件使用说明](docs/NSM_20files_manual_CN.docx)
+- [中文PPT：25页](docs/NSM_20files_slides_CN.pptx)
 
-- [完整代码与中文文档包](downloads/NSM_shear_complete.zip)
-- [仅 MATLAB 代码（13个文件）](downloads/NSM_shear_code_only.zip)
-- [中文 Word 说明](docs/NSM_shear_manual_CN.docx)
-- [中文 PPT（26页）](docs/NSM_shear_slides_CN.pptx)
+打开文件页后点击 **Download raw**；也可 Code → Download ZIP 下载仓库。
 
-也可点击仓库 **Code → Download ZIP** 下载整个仓库。
+## 使用
 
-## 运行
+只把 `code20/` 加入MATLAB路径，修改 `cc19_parameters.m`，先运行 `report=verify_2019()`，再运行 `main_2019`。默认输出10张图及对应场数据。详细阅读 [新版中文说明](README_20_CN.md)。
 
-仅将 `code/` 加入 MATLAB 路径。修改 `code/parameters.m` 中的参数，先运行 `report=verify_model()`，再运行 `main`。
+默认10000次的两次结果一致，力平衡、原接口回归和导出已在Octave验证。没有在商业MATLAB复测，也没有做抗剪疲劳试验标定。原模型未实现2019抗剪论文式(7)的完整PST/Green函数裂缝张开积分；本次没有用排版简化掩盖该限制。
 
-`original_20/` 与 `reference_23/` 仅供追溯，请勿与新版运行文件一起加入 MATLAB 路径。
-
-已在 GNU Octave 10.3.0 中完成数值检查；默认10000次循环的两次计算历史一致。尚未完成抗剪疲劳试验标定和商业 MATLAB 复测，不能将演示结果直接作为试验寿命预测。
-
-详见 [完整中文使用说明](README_中文.md)。
+`code/`、`README_中文.md`及根目录旧中文Word/PPT属于上一版13文件方案，保留供追溯，不作为本版运行入口。`original_20/`保持上传原文件不变，`reference_23/`为参考。
