@@ -1,0 +1,25 @@
+    elasticAnchorRelativeError = 3.8542e-04
+    anchorForceMismatch_N = 1.1994e-10
+    maxGlobalEquilibriumResidual_N = 0.049755
+    strengthenedCrackJump_mm = 0.051911
+    controlCrackJump_mm = 0.063985
+    fatigueActiveNodes = 31
+    fatigueUnactivatedNodes = 37
+    zeroLoadRangeNoFatigue = 1
+    modularEntryMatch = 1
+    singleBarLossBeamContinues = 1
+    optionalMinerInterfacesChecked = 1
+    experimentalCalibration = 0
+    meshSizes =
+
+        25    50   100
+
+    elasticMeshErrors =
+
+       6.1268e-03   1.5397e-03   3.8542e-04
+
+    cycleStepRelativeDifference = 2.5019e-04
+    rodAndExportChecked = 1
+    overloadExportChecked = 1
+NSM shear equilibrium verification passed in this runtime.
+error: ignoring const execution_exception& while preparing to exit

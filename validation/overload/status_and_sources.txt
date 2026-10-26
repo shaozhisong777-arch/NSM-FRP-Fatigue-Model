@@ -1,0 +1,20 @@
+model=NSM-strengthened critical-crack shear fatigue
+version=shear-refactor-1.0
+status=initial_no_equilibrium_in_model_domain
+lastBalancedCycle=0
+failureCycle=0
+failureBracket=[0,0]
+calibration=not_calibrated_for_NSM_shear_fatigue
+Q is total actuator load; V=Q/2; T is one physical NSM bar axial force.
+Qmax_N=1e+09
+Qmin_N=30000
+crossedNSMlinesPerFace=2
+faces=2
+steelFatigueEnabled=0
+concreteFatigueEnabled=0
+Default fatigue mechanism: local NSM bond degradation. S-N mechanisms require supplied calibration.
+No midspan deflection or experimental fatigue life is inferred from the crack-jump coordinate.
+equilibrium: Chen et al. 2022 Eqs.9a-9d; inclined FRP uses vertical projection
+ECC: Chen et al. 2024 Eqs.1-5: mechanism reference only; no ECC layer in this NSM model
+closure: Vc(q,w), crack shape and steel transfer length are inherited assumptions requiring calibration
+fatigue: 0.1965 and activation threshold inherited from supplied flexural reference; not validated shear-fatigue data

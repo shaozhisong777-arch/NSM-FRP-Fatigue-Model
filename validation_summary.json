@@ -1,0 +1,28 @@
+{
+  "runtime": "GNU Octave 10.3.0, Linux x86_64",
+  "MATLAB_tested": false,
+  "default_status": "runout_at_Nmax",
+  "last_cycle": 10000,
+  "history_rows": 503,
+  "V_components_N": [
+    89999.9850908177,
+    32260.83796892235,
+    33351.54892491925,
+    24387.598196976098
+  ],
+  "q_initial_mm": 0.4891395568847656,
+  "q_final_mm": 0.504963299314706,
+  "max_global_residual_N": 0.04973669351602439,
+  "max_anchor_residual_N": 1.7007550923153758e-10,
+  "elastic_anchor_relative_error": 0.00038542298169530476,
+  "mesh_relative_errors": [
+    0.006126759140584692,
+    0.0015396719925822033,
+    0.00038542298169530476
+  ],
+  "cycle_step_relative_difference": 0.00025019164328596213,
+  "original_short_run_max_abs_history_difference": 0.0,
+  "experimental_calibration": false,
+  "full_default_repeat_max_abs_history_difference": 0.0,
+  "default_V_decomposition_max_error_N": 0.0
+}

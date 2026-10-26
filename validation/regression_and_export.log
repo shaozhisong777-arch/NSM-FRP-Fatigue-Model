@@ -1,0 +1,4 @@
+cycle step: q1=0.430492263881 q5=0.430384558314 relative=0.000250191643286
+original history max absolute difference=0
+EXTRA_CHECKS_PASSED
+error: ignoring const execution_exception& while preparing to exit

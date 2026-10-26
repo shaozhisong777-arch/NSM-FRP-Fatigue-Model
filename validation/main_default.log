@@ -1,0 +1,15 @@
+warning: using the gnuplot graphics toolkit is discouraged
+
+The gnuplot graphics toolkit is not actively maintained and has a number
+of limitations that are unlikely to be fixed.  Communication with gnuplot
+uses a one-directional pipe and limited information is passed back to the
+Octave interpreter so most changes made interactively in the plot window
+will not be reflected in the graphics properties managed by Octave.  For
+example, if the plot window is closed with a mouse click, Octave will not
+be notified and will not update its internal list of open figure windows.
+The qt toolkit is recommended instead.
+strip NSM shear: runout_at_Nmax; last balanced cycle=10000
+V=90000 N = Vc 32260.8 + Vs 33351.5 + Vnsm 24387.6; q=0.504963 mm
+Crossed NSM lines per face=2, faces=2; calibration=not_calibrated_for_NSM_shear_fatigue
+warning: your version of GraphicsMagick limits images to 8 bits per pixel
+error: ignoring const execution_exception& while preparing to exit
