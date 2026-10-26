@@ -1,0 +1,22 @@
+{
+  "runtime": "GNU Octave 10.3.0",
+  "uploaded_reference_sha256": "aaa8371d13a0c0ac3b140ebe887712839ba793fb8a736b78af8056790b9136f2",
+  "reference_comparison_cases": 11,
+  "all_cases_exact": true,
+  "compared_fields": [
+    "status",
+    "history",
+    "memory",
+    "snapshots",
+    "initialCapacity",
+    "lastState",
+    "lastLowState",
+    "failureCycle",
+    "failureBracket",
+    "historyColumns",
+    "lastInfo"
+  ],
+  "entry_call_checked": true,
+  "commercial_MATLAB_tested": false,
+  "physics_changed": false
+}
