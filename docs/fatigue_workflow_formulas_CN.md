@@ -23,7 +23,7 @@
 
 ## ② 初始峰谷平衡
 
-外部cc19_state求：
+外部state求：
 
 $$V_c(q,D_c)+V_s(q,D_s)+V_f(q,H,n)=V_{target}$$
 

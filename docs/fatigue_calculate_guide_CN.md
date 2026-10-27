@@ -24,8 +24,8 @@
 | 节点局部龄期增加 `localN += cycleBlock` | 本文件 `update_memory`，以及 `cc19_active` | Chen、Wang、Cheng，2019抗弯疲劳论文，式(2)、第2.8节流程 | 局部计数思想有依据；移植到裂缝两侧NSM抗剪模型是改编 |
 | 黏结峰值 `tauM=max(0,tau0*(1-k*log10(max(localN,1))))` | 外部 `cc19_strength.m`，由状态试算调用；不直接写在主循环里 | 同一疲劳论文PDF第4页、期刊第177页式(2) | 杆材k=0.1965、条材k=0.1985；`max(localN,1)`用于首循环/未激活时的数值初始化 |
 | 滑移超过 `0.75*deltaM` 才激活 | 外部 `cc19_active.m` | 同一论文式(2)后的阈值说明 | 代码另外加入“峰谷滑移幅非零”、单筋失效后不计数等判断；这些是当前循环实现的补充 |
-| 最大/最小荷载下 `Vtarget=Q/2` | 本文件对 `cc19_state` 的调用 | 对称四点加载的静力平衡 | Q为两个加载点的总力；不是疲劳退化公式，也不适用于所有加载方式 |
-| `V=Vc+Vs+Vnsm`、相交筋的贡献 | 外部 `cc19_state`、`cc19_trial` | 2022裂缝效应论文式(9a)-(9d)；2024 ECC-FRP论文式(1)给出相应分解原则 | 本版是离散NSM条/杆，不能把ECC覆盖层贡献不加区分地套用；求根还需要额外本构和运动学闭合 |
+| 最大/最小荷载下 `Vtarget=Q/2` | 本文件对 `state` 的调用 | 对称四点加载的静力平衡 | Q为两个加载点的总力；不是疲劳退化公式，也不适用于所有加载方式 |
+| `V=Vc+Vs+Vnsm`、相交筋的贡献 | 外部 `state`、`cc19_trial` | 2022裂缝效应论文式(9a)-(9d)；2024 ECC-FRP论文式(1)给出相应分解原则 | 本版是离散NSM条/杆，不能把ECC覆盖层贡献不加区分地套用；求根还需要额外本构和运动学闭合 |
 | 两侧滑移和与轴力协调 | 外部 `cc19_hard` | Chen和Cheng，2019单裂缝抗剪论文，式(9d)、(11) | 保留有限锚固离散求解，不代表完整复现该论文所有方程 |
 | 钢筋 `Nf=Nref*(stressRef/stressRange)^m`，`D+=dN/Nf` | 本文件 `update_memory` 可选钢筋段 | 通用幂律S-N与线性Miner累计思想；是原代码附加接口 | **不是所提供两篇2019论文直接给出的抗剪疲劳公式**；默认Nref=Inf关闭，无标定数据不应随意开启 |
 | 混凝土S-N/Miner及等效应力范围 | 本文件 `update_memory` 可选混凝土段 | 原代码附加假设 | 用Vc包络在41个q点上的极差除以width*ds，是模型选择，不是2019论文的混凝土疲劳定律 |
@@ -84,7 +84,7 @@ end
 | `p.Qmax` | 结构体p中的最大荷载参数 |
 | `memory.age{bar,side}` | 取出某根筋、某个锚固侧的节点龄期数组 |
 | `memory.age{bar,side}(node)` | 取出该数组第node个数值 |
-| `[peak,info]=cc19_state(...)` | 同时接收状态和求解说明两个输出 |
+| `[peak,info]=state(...)` | 同时接收状态和求解说明两个输出 |
 | `~info.ok` | 求解没有成功 |
 | `&&`、`||` | 两个条件同时成立／至少一个成立 |
 | `out.history(end+1,:)` | 在历史表末尾追加一行，冒号表示全部列 |
@@ -103,7 +103,7 @@ out = fatigue_calculate(p);
 out = read_and_calculate('strip');
 ```
 
-本文件仍依赖剩余原名模块，例如cc19_validate、cc19_state、cc19_active等。把parameters、read_and_calculate、fatigue_calculate放在同一目录，并保留这些依赖；不要误把只下载这一个文件理解为已包含全部求解器。
+本文件仍依赖剩余原名模块，例如cc19_validate、state、cc19_active等。把parameters、read_and_calculate、fatigue_calculate放在同一目录，并保留这些依赖；不要误把只下载这一个文件理解为已包含全部求解器。
 
 ## 数值核对
 

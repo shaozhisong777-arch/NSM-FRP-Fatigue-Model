@@ -7,9 +7,10 @@
 - [parameters.m](parameters.m)：保留p结构，英文注释。
 - [read_and_calculate.m](read_and_calculate.m)：统一入口，已调用fatigue_calculate。
 - [fatigue_calculate.m](fatigue_calculate.m)：本次上传cc19_run的简单语法改写；不另加计算模块文件。
+- [state.m](state.m)：原cc19_state求根器，单文件四步；[中文说明](docs/state_guide_CN.md)。
 - [该文件的论文公式对应表与中文语法说明](docs/fatigue_calculate_guide_CN.md)。
 
-这三个文件与尚未改名的其余code20依赖配合使用。下方完整20文件包保留整套旧接口用于追溯；当前逐文件改名版本请使用上述文件。
+这些已改名文件与尚未改名的其余code20依赖配合使用。下方完整20文件包保留整套旧接口用于追溯；当前逐文件改名版本请使用上述文件。
 
 ## 下载
 

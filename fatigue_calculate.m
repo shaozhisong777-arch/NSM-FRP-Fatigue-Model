@@ -25,7 +25,7 @@ end
 
 %% 2. Solve the first maximum-load and minimum-load states.
 % Q is total load in symmetric four-point loading; shear-span force is Q/2.
-[peak, peakInfo] = cc19_state(p, memory, p.Qmax / 2, 0, false);
+[peak, peakInfo] = state(p, memory, p.Qmax / 2, 0, false);
 out.lastInfo = peakInfo;
 if ~peakInfo.ok
     out.status = ['initial_' peakInfo.status];
@@ -41,7 +41,7 @@ if ~peakInfo.ok
 end
 
 memory = peak.memory;
-[low, lowInfo] = cc19_state(p, memory, p.Qmin / 2, peak.q, true);
+[low, lowInfo] = state(p, memory, p.Qmin / 2, peak.q, true);
 if ~lowInfo.ok
     out.status = ['minimum_load_' lowInfo.status];
     out.lastInfo = lowInfo;
@@ -99,7 +99,7 @@ while N < p.Nmax
     retryBlock = true;
     while retryBlock
         proposed = update_memory(p, memory, activeNodes, peak, low, cycleBlock);
-        [nextPeak, nextInfo] = cc19_state(p, proposed, p.Qmax / 2, peak.q, false);
+        [nextPeak, nextInfo] = state(p, proposed, p.Qmax / 2, peak.q, false);
 
         openingTooFast = false;
         if nextInfo.ok
@@ -136,7 +136,7 @@ while N < p.Nmax
     end
 
     nextMemory = nextPeak.memory;
-    [nextLow, nextLowInfo] = cc19_state(p, nextMemory, p.Qmin / 2, nextPeak.q, true);
+    [nextLow, nextLowInfo] = state(p, nextMemory, p.Qmin / 2, nextPeak.q, true);
     if ~nextLowInfo.ok
         out.status = ['minimum_load_' nextLowInfo.status];
         out.lastInfo = nextLowInfo;

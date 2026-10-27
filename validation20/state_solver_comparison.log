@@ -1,0 +1,8 @@
+linear: exact match, balanced, invalid solves=0
+two_roots: exact match, balanced, invalid solves=0
+discontinuous: exact match, branch_or_resolution_limit, invalid solves=0
+all_failed: exact match, numerical_failure, invalid solves=26
+midpoint_failed: exact match, numerical_failure, invalid solves=1
+Unloading, both user limits, empty search interval and unresolved bracket: all exact matches.
+ALL10_SOLVER_CHECKS_PASSED; synthetic forces test numerical behavior only.
+error: ignoring const execution_exception& while preparing to exit
