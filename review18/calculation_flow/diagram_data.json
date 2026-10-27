@@ -1,0 +1,775 @@
+[
+  {
+    "name": "抗剪疲劳计算主流程",
+    "width": 1560,
+    "height": 2630,
+    "nodes": [
+      {
+        "id": "start",
+        "text": "开始：定义一个抗剪疲劳算例",
+        "x": 430,
+        "y": 60,
+        "w": 570,
+        "h": 70,
+        "kind": "round",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "input",
+        "text": "输入试件、材料、黏结参数与峰谷总荷载\n目标剪力：Vmax=Qmax/2；Vmin=Qmin/2\nparameters / read_and_calculate",
+        "x": 430,
+        "y": 170,
+        "w": 570,
+        "h": 110,
+        "kind": "box",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "init",
+        "text": "计算真实交点、两侧锚固长度与箍筋位置\n初始化 N=0、最大滑移、局部龄期和失效记录\nprepare_parameters / fatigue_calculate",
+        "x": 430,
+        "y": 320,
+        "w": 570,
+        "h": 110,
+        "kind": "box",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "initial",
+        "text": "依次求初始峰值、谷值平衡（局部求解见第2页）\nVc(q)+Vs(q)+Vf(q)=Qmax/2 或 Qmin/2\n可选 capacity_scan 仅作初始静力诊断",
+        "x": 430,
+        "y": 470,
+        "w": 570,
+        "h": 110,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "initok",
+        "text": "初始峰、谷状态\n都求解成功？",
+        "x": 430,
+        "y": 620,
+        "w": 570,
+        "h": 100,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "limit",
+        "text": "N < Nmax？",
+        "x": 430,
+        "y": 765,
+        "w": 570,
+        "h": 100,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "active",
+        "text": "由峰谷滑移确定疲劳活跃节点\n曾激活或 smax>ηδm，且滑移差>容差（η默认0.75）\nactive_nodes｜[F19：阈值；其余为实现规则]",
+        "x": 430,
+        "y": 905,
+        "w": 570,
+        "h": 110,
+        "kind": "box",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "on",
+        "text": "有活跃节点，或启用了\n箍筋/混凝土 S–N 规则？",
+        "x": 430,
+        "y": 1055,
+        "w": 570,
+        "h": 110,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "step",
+        "text": "选择循环块 ΔN\n不超过cycleStep、剩余循环数与下一快照位置\nfatigue_calculate",
+        "x": 430,
+        "y": 1205,
+        "w": 570,
+        "h": 100,
+        "kind": "box",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "proposal",
+        "text": "从已接受历史建立候选历史，不覆盖原历史\n活跃节点：Nloc,new=Nloc,old+ΔN\n可选S–N/Miner更新；默认关闭",
+        "x": 430,
+        "y": 1345,
+        "w": 570,
+        "h": 110,
+        "kind": "box",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "peak",
+        "text": "按候选龄期更新 τm，并重新求峰值平衡\nτm=max{0,τm0[1−kf log₁₀max(Nloc,1)]} [F19式2]\nstate → trial → bond_strength / anchorage",
+        "x": 430,
+        "y": 1495,
+        "w": 570,
+        "h": 120,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "retry",
+        "text": "峰值失败或 q 增长过快，\n并且 ΔN > 1？",
+        "x": 430,
+        "y": 1655,
+        "w": 570,
+        "h": 110,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "peakok",
+        "text": "候选峰值平衡成功？",
+        "x": 430,
+        "y": 1805,
+        "w": 570,
+        "h": 100,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "valley",
+        "text": "继承候选峰值的最大滑移历史，求谷值平衡\nVc(qmin)+Vs(qmin)+Vf(qmin)=Qmin/2\nstate（卸载）",
+        "x": 430,
+        "y": 1945,
+        "w": 570,
+        "h": 110,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "lowok",
+        "text": "候选谷值平衡成功？",
+        "x": 430,
+        "y": 2095,
+        "w": 570,
+        "h": 100,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "commit",
+        "text": "接受循环块：N←N+ΔN，提交候选历史\n记录抗剪分量、裂缝位移、残差及失效标志\nhistory_row / save_snapshot",
+        "x": 430,
+        "y": 2235,
+        "w": 570,
+        "h": 110,
+        "kind": "box",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "output",
+        "text": "结束并输出最后有效结果\nexport_results：曲线、局部场、MAT / CSV / PNG",
+        "x": 430,
+        "y": 2405,
+        "w": 570,
+        "h": 100,
+        "kind": "round",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "runout",
+        "text": "达到 Nmax\n标记 runout，不代表已破坏",
+        "x": 50,
+        "y": 765,
+        "w": 300,
+        "h": 100,
+        "kind": "box",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "inactive",
+        "text": "无可演化的退化项\n沿快照记录至 Nmax\n标记无活跃退化runout",
+        "x": 50,
+        "y": 1055,
+        "w": 300,
+        "h": 120,
+        "kind": "box",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "half",
+        "text": "ΔN←max[1, floor(ΔN/2)]\n回到同一份已接受历史重试",
+        "x": 1120,
+        "y": 1345,
+        "w": 330,
+        "h": 100,
+        "kind": "box",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "initialstop",
+        "text": "初始求解未成功\n记录初始模型限制或数值诊断",
+        "x": 1120,
+        "y": 620,
+        "w": 330,
+        "h": 110,
+        "kind": "box",
+        "color": "FFE2DE"
+      },
+      {
+        "id": "stop",
+        "text": "记录停止原因\n数值不收敛 ≠ 物理破坏\n无指定分支平衡根＝模型限制\n保留最后已接受状态",
+        "x": 1120,
+        "y": 2075,
+        "w": 330,
+        "h": 150,
+        "kind": "box",
+        "color": "FFE2DE"
+      }
+    ],
+    "edges": [
+      {
+        "a": "start",
+        "b": "input",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "input",
+        "b": "init",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "init",
+        "b": "initial",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "initial",
+        "b": "initok",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "initok",
+        "b": "limit",
+        "label": "是：保存N=0结果",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "initok",
+        "b": "initialstop",
+        "label": "否",
+        "ap": "r",
+        "bp": "l",
+        "via": []
+      },
+      {
+        "a": "initialstop",
+        "b": "stop",
+        "label": "",
+        "ap": "r",
+        "bp": "r",
+        "via": [
+          [
+            1510,
+            675
+          ],
+          [
+            1510,
+            2150
+          ]
+        ]
+      },
+      {
+        "a": "limit",
+        "b": "active",
+        "label": "是",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "limit",
+        "b": "runout",
+        "label": "否",
+        "ap": "l",
+        "bp": "r",
+        "via": []
+      },
+      {
+        "a": "runout",
+        "b": "output",
+        "label": "",
+        "ap": "l",
+        "bp": "l",
+        "via": [
+          [
+            20,
+            815
+          ],
+          [
+            20,
+            2455
+          ]
+        ]
+      },
+      {
+        "a": "active",
+        "b": "on",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "on",
+        "b": "step",
+        "label": "是",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "on",
+        "b": "inactive",
+        "label": "否",
+        "ap": "l",
+        "bp": "r",
+        "via": []
+      },
+      {
+        "a": "inactive",
+        "b": "output",
+        "label": "",
+        "ap": "l",
+        "bp": "l",
+        "via": [
+          [
+            20,
+            1115
+          ],
+          [
+            20,
+            2455
+          ]
+        ]
+      },
+      {
+        "a": "step",
+        "b": "proposal",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "proposal",
+        "b": "peak",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "peak",
+        "b": "retry",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "retry",
+        "b": "half",
+        "label": "是",
+        "ap": "r",
+        "bp": "l",
+        "via": [
+          [
+            1070,
+            1710
+          ],
+          [
+            1070,
+            1395
+          ]
+        ]
+      },
+      {
+        "a": "half",
+        "b": "proposal",
+        "label": "",
+        "ap": "l",
+        "bp": "r",
+        "via": [
+          [
+            1040,
+            1395
+          ],
+          [
+            1040,
+            1400
+          ]
+        ]
+      },
+      {
+        "a": "retry",
+        "b": "peakok",
+        "label": "否",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "peakok",
+        "b": "valley",
+        "label": "是",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "peakok",
+        "b": "stop",
+        "label": "否",
+        "ap": "r",
+        "bp": "r",
+        "via": [
+          [
+            1480,
+            1855
+          ],
+          [
+            1480,
+            2150
+          ]
+        ]
+      },
+      {
+        "a": "valley",
+        "b": "lowok",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "lowok",
+        "b": "commit",
+        "label": "是",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "lowok",
+        "b": "stop",
+        "label": "否",
+        "ap": "r",
+        "bp": "l",
+        "via": []
+      },
+      {
+        "a": "commit",
+        "b": "limit",
+        "label": "下一循环块",
+        "ap": "l",
+        "bp": "l",
+        "via": [
+          [
+            375,
+            2290
+          ],
+          [
+            375,
+            815
+          ]
+        ],
+        "lp": [
+          300,
+          1700
+        ]
+      },
+      {
+        "a": "stop",
+        "b": "output",
+        "label": "",
+        "ap": "b",
+        "bp": "r",
+        "via": [
+          [
+            1285,
+            2455
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "峰谷抗剪平衡的内部计算",
+    "width": 1560,
+    "height": 1900,
+    "nodes": [
+      {
+        "id": "start",
+        "text": "给定目标剪力 Vtarget 与已接受历史 memory\n峰值取Qmax/2，谷值取Qmin/2",
+        "x": 430,
+        "y": 70,
+        "w": 570,
+        "h": 100,
+        "kind": "round",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "q",
+        "text": "选择试探 q：扫描上升符号变化并二分\n峰值：q≥上次峰值；谷值：0≤q≤峰值q\nstate：每个试探使用同一份已接受历史",
+        "x": 430,
+        "y": 215,
+        "w": 570,
+        "h": 110,
+        "kind": "box",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "crack",
+        "text": "计算裂缝运动\ng(y)=(1−y/hc)^m；K=cosθ+r sinθ\nw₀=q/K；v₀=rw₀｜crack_deformation",
+        "x": 430,
+        "y": 370,
+        "w": 570,
+        "h": 110,
+        "kind": "box",
+        "color": "EEF0F3"
+      },
+      {
+        "id": "concrete",
+        "text": "计算混凝土和穿缝箍筋的抗剪贡献\nVc=当前经验闭合函数 Vc(q,Dc)\nεs=qg/ls；σs=min(Esεs,fy)；Vs=ΣAsσs｜trial",
+        "x": 430,
+        "y": 525,
+        "w": 570,
+        "h": 110,
+        "kind": "box",
+        "color": "EEF0F3"
+      },
+      {
+        "id": "bar",
+        "text": "对每根未失效的穿缝FRP筋计算裂缝位移投影\nδj=qg(yj)[sin(θ+αj)−r cos(θ+αj)]/K\n竖向筋α=90°时：δj=qg(yj)｜trial",
+        "x": 430,
+        "y": 680,
+        "w": 570,
+        "h": 110,
+        "kind": "box",
+        "color": "EEF0F3"
+      },
+      {
+        "id": "tm",
+        "text": "由各节点局部龄期计算退化峰值 τm\nτm=max{0,τm0[1−kf log₁₀max(Nloc,1)]}\nbond_strength｜[F19式2]",
+        "x": 430,
+        "y": 835,
+        "w": 570,
+        "h": 110,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "anchor",
+        "text": "离散两侧锚固段，迭代黏结刚度与滑移\ns₁(0)+s₂(0)=δj；T₁(0)=T₂(0)；自由端T=0\nanchorage / anchor_mesh / bond｜[S19式9d、10、11]",
+        "x": 430,
+        "y": 990,
+        "w": 570,
+        "h": 120,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "fail",
+        "text": "检查本根筋是否脱黏、达到抗拉或用户上限\n失效筋贡献归零；然后处理下一根筋\ntrial：不把一根筋失效直接等同整梁破坏",
+        "x": 430,
+        "y": 1155,
+        "w": 570,
+        "h": 110,
+        "kind": "box",
+        "color": "EEF0F3"
+      },
+      {
+        "id": "sum",
+        "text": "汇总FRP竖向分量及总抗剪力\nVf=nfaces ΣTj sinαj；V(q)=Vc+Vs+Vf\ntrial｜方向投影与分量平衡 [R22式9a–d]",
+        "x": 430,
+        "y": 1310,
+        "w": 570,
+        "h": 110,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "balanced",
+        "text": "局部求解有效，且\n|V(q)−Vtarget|≤forceTolerance？",
+        "x": 430,
+        "y": 1465,
+        "w": 570,
+        "h": 120,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "return",
+        "text": "返回本次峰值或谷值的平衡响应\n供总控制器检查是否接受候选循环块",
+        "x": 430,
+        "y": 1630,
+        "w": 570,
+        "h": 100,
+        "kind": "round",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "more",
+        "text": "尚有扫描点或\n有效二分搜索可继续？",
+        "x": 1120,
+        "y": 1465,
+        "w": 330,
+        "h": 120,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "diag",
+        "text": "停止本次平衡搜索并返回分类诊断\n数值失败 / 分支分辨率限制 / 无域内平衡根\n不是统一标记为脱黏破坏",
+        "x": 1120,
+        "y": 1630,
+        "w": 330,
+        "h": 130,
+        "kind": "box",
+        "color": "FFE2DE"
+      }
+    ],
+    "edges": [
+      {
+        "a": "start",
+        "b": "q",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "q",
+        "b": "crack",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "crack",
+        "b": "concrete",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "concrete",
+        "b": "bar",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "bar",
+        "b": "tm",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "tm",
+        "b": "anchor",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "anchor",
+        "b": "fail",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "fail",
+        "b": "sum",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "sum",
+        "b": "balanced",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "balanced",
+        "b": "return",
+        "label": "是",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "balanced",
+        "b": "more",
+        "label": "否",
+        "ap": "r",
+        "bp": "l",
+        "via": []
+      },
+      {
+        "a": "more",
+        "b": "q",
+        "label": "是：调整q",
+        "ap": "r",
+        "bp": "r",
+        "via": [
+          [
+            1510,
+            1525
+          ],
+          [
+            1510,
+            270
+          ]
+        ],
+        "lp": [
+          1420,
+          700
+        ]
+      },
+      {
+        "a": "more",
+        "b": "diag",
+        "label": "否",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      }
+    ]
+  }
+]

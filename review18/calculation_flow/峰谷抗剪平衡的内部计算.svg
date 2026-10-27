@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="1900" viewBox="0 0 1560 1900">
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9Z" fill="#1685B6"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="780" y="30.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="28" text-anchor="middle" dominant-baseline="middle" fill="#243746">峰谷抗剪平衡的内部计算</text>
+<polyline points="715.0,170 715.0,215" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,215 708.0,197.0 722.0,197.0" fill="#1685B6"/>
+<polyline points="715.0,325 715.0,370" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,370 708.0,352.0 722.0,352.0" fill="#1685B6"/>
+<polyline points="715.0,480 715.0,525" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,525 708.0,507.0 722.0,507.0" fill="#1685B6"/>
+<polyline points="715.0,635 715.0,680" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,680 708.0,662.0 722.0,662.0" fill="#1685B6"/>
+<polyline points="715.0,790 715.0,835" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,835 708.0,817.0 722.0,817.0" fill="#1685B6"/>
+<polyline points="715.0,945 715.0,990" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,990 708.0,972.0 722.0,972.0" fill="#1685B6"/>
+<polyline points="715.0,1110 715.0,1155" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,1155 708.0,1137.0 722.0,1137.0" fill="#1685B6"/>
+<polyline points="715.0,1265 715.0,1310" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,1310 708.0,1292.0 722.0,1292.0" fill="#1685B6"/>
+<polyline points="715.0,1420 715.0,1465" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,1465 708.0,1447.0 722.0,1447.0" fill="#1685B6"/>
+<polyline points="715.0,1585 715.0,1630" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,1630 708.0,1612.0 722.0,1612.0" fill="#1685B6"/>
+<text x="733.0" y="1595.5" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">是</text>
+<polyline points="1000,1525.0 1120,1525.0" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="1120,1525.0 1102.0,1532.0 1102.0,1518.0" fill="#1685B6"/>
+<text x="1078.0" y="1513.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">否</text>
+<polyline points="1450,1525.0 1510,1525 1510,270 1000,270.0" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="1000,270.0 1018.0,263.0 1018.0,277.0" fill="#1685B6"/>
+<text x="1420" y="700.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">是：调整q</text>
+<polyline points="1285.0,1585 1285.0,1630" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="1285.0,1630 1278.0,1612.0 1292.0,1612.0" fill="#1685B6"/>
+<text x="1303.0" y="1595.5" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">否</text>
+<rect x="430" y="70" width="570" height="100" rx="14" fill="#E7F0FF" stroke="#6A7E90"/>
+<text x="715.0" y="106.14" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">给定目标剪力 Vtarget 与已接受历史 memory</text>
+<text x="715.0" y="133.86" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">峰值取Qmax/2，谷值取Qmin/2</text>
+<rect x="430" y="215" width="570" height="110" rx="14" fill="#E7F0FF" stroke="#6A7E90"/>
+<text x="715.0" y="242.28" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">选择试探 q：扫描上升符号变化并二分</text>
+<text x="715.0" y="270.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">峰值：q≥上次峰值；谷值：0≤q≤峰值q</text>
+<text x="715.0" y="297.72" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">state：每个试探使用同一份已接受历史</text>
+<rect x="430" y="370" width="570" height="110" rx="14" fill="#EEF0F3" stroke="#6A7E90"/>
+<text x="715.0" y="397.28" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">计算裂缝运动</text>
+<text x="715.0" y="425.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">g(y)=(1−y/hc)^m；K=cosθ+r sinθ</text>
+<text x="715.0" y="452.72" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">w₀=q/K；v₀=rw₀｜crack_deformation</text>
+<rect x="430" y="525" width="570" height="110" rx="14" fill="#EEF0F3" stroke="#6A7E90"/>
+<text x="715.0" y="552.28" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">计算混凝土和穿缝箍筋的抗剪贡献</text>
+<text x="715.0" y="580.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">Vc=当前经验闭合函数 Vc(q,Dc)</text>
+<text x="715.0" y="607.72" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">εs=qg/ls；σs=min(Esεs,fy)；Vs=ΣAsσs｜trial</text>
+<rect x="430" y="680" width="570" height="110" rx="14" fill="#EEF0F3" stroke="#6A7E90"/>
+<text x="715.0" y="707.28" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">对每根未失效的穿缝FRP筋计算裂缝位移投影</text>
+<text x="715.0" y="735.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">δj=qg(yj)[sin(θ+αj)−r cos(θ+αj)]/K</text>
+<text x="715.0" y="762.72" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">竖向筋α=90°时：δj=qg(yj)｜trial</text>
+<rect x="430" y="835" width="570" height="110" rx="14" fill="#E5F3E9" stroke="#6A7E90"/>
+<text x="715.0" y="862.28" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">由各节点局部龄期计算退化峰值 τm</text>
+<text x="715.0" y="890.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">τm=max{0,τm0[1−kf log₁₀max(Nloc,1)]}</text>
+<text x="715.0" y="917.72" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">bond_strength｜[F19式2]</text>
+<rect x="430" y="990" width="570" height="120" rx="14" fill="#E5F3E9" stroke="#6A7E90"/>
+<text x="715.0" y="1022.28" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">离散两侧锚固段，迭代黏结刚度与滑移</text>
+<text x="715.0" y="1050.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">s₁(0)+s₂(0)=δj；T₁(0)=T₂(0)；自由端T=0</text>
+<text x="715.0" y="1077.72" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">anchorage / anchor_mesh / bond｜[S19式9d、10、11]</text>
+<rect x="430" y="1155" width="570" height="110" rx="14" fill="#EEF0F3" stroke="#6A7E90"/>
+<text x="715.0" y="1182.28" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">检查本根筋是否脱黏、达到抗拉或用户上限</text>
+<text x="715.0" y="1210.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">失效筋贡献归零；然后处理下一根筋</text>
+<text x="715.0" y="1237.72" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">trial：不把一根筋失效直接等同整梁破坏</text>
+<rect x="430" y="1310" width="570" height="110" rx="14" fill="#E5F3E9" stroke="#6A7E90"/>
+<text x="715.0" y="1337.28" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">汇总FRP竖向分量及总抗剪力</text>
+<text x="715.0" y="1365.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">Vf=nfaces ΣTj sinαj；V(q)=Vc+Vs+Vf</text>
+<text x="715.0" y="1392.72" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">trial｜方向投影与分量平衡 [R22式9a–d]</text>
+<polygon points="715.0,1465 1000,1525.0 715.0,1585 430,1525.0" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="715.0" y="1511.14" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">局部求解有效，且</text>
+<text x="715.0" y="1538.86" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">|V(q)−Vtarget|≤forceTolerance？</text>
+<rect x="430" y="1630" width="570" height="100" rx="14" fill="#E7F0FF" stroke="#6A7E90"/>
+<text x="715.0" y="1666.14" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">返回本次峰值或谷值的平衡响应</text>
+<text x="715.0" y="1693.86" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">供总控制器检查是否接受候选循环块</text>
+<polygon points="1285.0,1465 1450,1525.0 1285.0,1585 1120,1525.0" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="1285.0" y="1512.46" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#243746">尚有扫描点或</text>
+<text x="1285.0" y="1537.54" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#243746">有效二分搜索可继续？</text>
+<rect x="1120" y="1630" width="330" height="130" rx="14" fill="#FFE2DE" stroke="#6A7E90"/>
+<text x="1285.0" y="1669.92" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#243746">停止本次平衡搜索并返回分类诊断</text>
+<text x="1285.0" y="1695.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#243746">数值失败 / 分支分辨率限制 / 无域内平衡根</text>
+<text x="1285.0" y="1720.08" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#243746">不是统一标记为脱黏破坏</text>
+<text x="780" y="1855.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle" fill="#243746">[S19] DOI:10.1061/(ASCE)CC.1943-5614.0000953；[R22] DOI尾号0001251。Vc、g、r、ls含代码假定；未实现S19式7。</text>
+</svg>
