@@ -304,5 +304,4 @@ snapshot.peak = peak;
 snapshot.minimum = low;
 snapshot.field = save_snapshot(p, peak, memory);
 snapshot.memory = memory;
-snapshot.reference = paper_reference(p, peak);
 end

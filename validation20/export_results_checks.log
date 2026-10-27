@@ -1,0 +1,18 @@
+CORE_OUTPUTS_EXACT_AFTER_REMOVING_REFERENCE
+CSV_AND_STATUS_EXACT; MAT_ROUNDTRIP_PASSED; csvFiles=15
+warning: using the gnuplot graphics toolkit is discouraged
+
+The gnuplot graphics toolkit is not actively maintained and has a number
+of limitations that are unlikely to be fixed.  Communication with gnuplot
+uses a one-directional pipe and limited information is passed back to the
+Octave interpreter so most changes made interactively in the plot window
+will not be reflected in the graphics properties managed by Octave.  For
+example, if the plot window is closed with a mouse click, Octave will not
+be notified and will not update its internal list of open figure windows.
+The qt toolkit is recommended instead.
+warning: your version of GraphicsMagick limits images to 8 bits per pixel
+ALL10_FIGURES_EXPORTED; folder=/tmp/oct-yyb07m/plots
+EMPTY_HISTORY_EXPORT_PASSED
+READ_AND_CALCULATE_EXPORT_ENTRY_PASSED
+ALL_EXPORT_CHECKS_PASSED
+error: ignoring const execution_exception& while preparing to exit

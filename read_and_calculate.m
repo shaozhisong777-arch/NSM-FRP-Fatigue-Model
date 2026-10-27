@@ -20,8 +20,8 @@ function out = read_and_calculate(kind, overrides)
         p.(names{i}) = overrides.(names{i});
     end
     out = fatigue_calculate(p);
-    % Plotting and file export are handled by cc19_export.
+    % Plotting and file export are handled by export_results.
     if p.makePlots || p.exportResults
-        cc19_export(out);
+        export_results(out);
     end
 end

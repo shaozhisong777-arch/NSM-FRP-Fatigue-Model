@@ -1,3 +1,5 @@
+> 历史记录：当前入口已按用户要求移除此运行时对照模块，见 [导出与清理说明](export_results_guide_CN.md)。
+
 # shearfoce.m：均匀应变桁架对照
 
 由上传的 cc19_shearforce.m 改名、简化，按用户指定拼写命名为 shearfoce.m。保留 function、p、英文注释及原公式。它不汇总混凝土与箍筋抗剪贡献，而是提供两个 FRP 抗剪对照值。

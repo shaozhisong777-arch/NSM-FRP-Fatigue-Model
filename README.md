@@ -19,9 +19,10 @@
 - [capacity_scan.m](capacity_scan.m)：循环搜索有效采样峰值；需同步更新 fatigue_calculate.m；[中文说明](docs/capacity_scan_guide_CN.md)。
 - [prepare_parameters.m](prepare_parameters.m)：输入检查与几何准备，需同步更新 fatigue_calculate.m；[中文说明及p.语法](docs/prepare_parameters_guide_CN.md)。
 - [beam_load.m](beam_load.m)：对称四点加载的弯矩与剪力工具，当前主流程未调用；[中文说明](docs/beam_load_guide_CN.md)。
-- [shearfoce.m](shearfoce.m)：均匀应变桁架对照，当前由 paper_reference.m 调用；[中文说明](docs/truss_reference_guide_CN.md)。
-- [paper_reference.m](paper_reference.m)：快照的论文对照入口，无插值运算；需同步更新 fatigue_calculate.m；[中文说明](docs/paper_reference_guide_CN.md)。
+- [export_results.m](export_results.m)：循环绘图和导出，已移除运行时论文对照；需同步 read_and_calculate.m、fatigue_calculate.m；[中文说明](docs/export_results_guide_CN.md)。
 - [该文件的论文公式对应表与中文语法说明](docs/fatigue_calculate_guide_CN.md)。
+
+运行时的 paper_reference/shearfoce 对照已按要求移除；论文只作为公式和说明的依据。
 
 这些已改名文件与尚未改名的其余code20依赖配合使用。下方完整20文件包保留整套旧接口用于追溯；当前逐文件改名版本请使用上述文件。
 

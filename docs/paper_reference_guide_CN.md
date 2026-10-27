@@ -1,3 +1,5 @@
+> 历史记录：当前入口已按用户要求移除此运行时对照模块，见 [导出与清理说明](export_results_guide_CN.md)。
+
 # paper_reference.m：快照中的论文对照入口
 
 由上传的 cc19_paper_interpolation.m 改名。原文件不进行插值，因此名称改为 paper_reference，函数仍为一行调用：
