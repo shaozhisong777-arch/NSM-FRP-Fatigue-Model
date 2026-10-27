@@ -7,8 +7,8 @@ function a = anchorage(p, delta, L1, L2, hist1, hist2, tm1, tm2, unload)
     if nargin < 9
         unload = false;
     end
-    [x1, w1] = cc19_mesh(p, L1);
-    [x2, w2] = cc19_mesh(p, L2);
+    [x1, w1] = anchor_mesh(p, L1);
+    [x2, w2] = anchor_mesh(p, L2);
     % 1. Number the nodes. Both sides share the crack node.
     n = p.nCells;
     m = 2 * n + 1;
