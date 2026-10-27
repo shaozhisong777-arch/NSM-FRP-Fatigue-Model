@@ -15,7 +15,7 @@ function out = fatigue_calculate(p)
 % This rewrite preserves the uploaded algorithm, output fields and defaults.
 
 %% 1. Check parameters and prepare empty history.
-p = cc19_validate(p);
+p = prepare_parameters(p);
 memory = create_memory(p);
 out = create_output(p, memory);
 
