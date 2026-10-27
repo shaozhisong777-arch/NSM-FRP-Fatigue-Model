@@ -1,0 +1,15 @@
+digraph local {
+graph [rankdir=TB,bgcolor=white,pad=.25,nodesep=.3,ranksep=.35,fontname="Noto Sans CJK SC",fontsize=20,label="给定 q，trial 如何计算一次抗剪响应",labelloc=t];
+node [shape=box,style="rounded,filled",fillcolor="#e9f6ee",color="#56876a",fontname="Noto Sans CJK SC",fontsize=14,margin=".2,.14"];
+edge [fontname="Noto Sans CJK SC",fontsize=11,color="#60758a"];
+a [label="state 给出试探 q\n所有试探使用同一份已接受 memory，不提交扫描候选"];
+b [label="crack_deformation [F03]\ng(y)=(1−y/hc)^m；K=cosθ+r sinθ；w₀=q/K；v₀=r w₀\n当前是指定裂缝运动，不是 S19 式(7)",fillcolor="#fff4dd"];
+c [label="trial：混凝土与箍筋 [F09,F10]\nVc=经验指数闭合式；εs=qg/ls；σs=min(Esεs,fy)\nVs=ΣAs σs（材料应变关系有附加假定）",fillcolor="#fff4dd"];
+d [label="trial：逐根 FRP [F04]\nδj=qg(yj)·[sin(θ+αj)−r cos(θ+αj)]/K\n竖向筋 α=90° 时 δj=qg(yj)"];
+e [label="bond_strength [F08]：由局部龄期提供退化峰值\nτm=max{0,τm0[1−kf log₁₀ max(Nloc,1)]}\n来源 F19 式(2)，由抗弯迁移至抗剪需验证"];
+f [label="anchorage + anchor_mesh + bond [F05–F07]\n每侧 n 单元；三段包络与历史割线卸载\ns₁(0)+s₂(0)=δj；T₁(0)=T₂(0)；自由端 T=0\n固定点迭代失败时 Newton 回退"];
+g [label="trial：检查本根筋并求和 [F11,F13]\n失效筋不再贡献；Vf=nfaces ΣTj sinαj\n总抗剪力 V(q)=Vc+Vs+Vf"];
+h [shape=diamond,label="state：|V(q)−Q/2|\n≤ forceTolerance？",fillcolor="#eaf2ff"];
+i [label="接受一个峰/谷平衡状态，返回总控制器\n局部失败给出数值诊断，不直接当作物理破坏",fillcolor="#eaf2ff"];
+a->b->c->d->e->f->g->h;h->i [label="是"];h->a [label="否：扫描/二分调整q"];
+}

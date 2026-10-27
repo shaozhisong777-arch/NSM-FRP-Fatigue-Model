@@ -1,0 +1,7 @@
+ACTIVE_RESOLUTION n=12 q=0.578570048014 nodes=2 integratedMaskLength=11.875
+ACTIVE_RESOLUTION n=24 q=0.581596374512 nodes=2 integratedMaskLength=5.9375
+ACTIVE_RESOLUTION n=48 q=0.582365671794 nodes=2 integratedMaskLength=2.96875
+ACTIVE_RESOLUTION n=96 q=0.582558949788 nodes=2 integratedMaskLength=1.484375
+ACTIVE_RESOLUTION n=192 q=0.582607269287 nodes=3 integratedMaskLength=1.40303696645
+ACTIVE_RESOLUTION n=384 q=0.582619984945 nodes=5 integratedMaskLength=1.44370598322
+error: ignoring const execution_exception& while preparing to exit

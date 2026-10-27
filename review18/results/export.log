@@ -1,0 +1,13 @@
+warning: using the gnuplot graphics toolkit is discouraged
+
+The gnuplot graphics toolkit is not actively maintained and has a number
+of limitations that are unlikely to be fixed.  Communication with gnuplot
+uses a one-directional pipe and limited information is passed back to the
+Octave interpreter so most changes made interactively in the plot window
+will not be reflected in the graphics properties managed by Octave.  For
+example, if the plot window is closed with a mouse click, Octave will not
+be notified and will not update its internal list of open figure windows.
+The qt toolkit is recommended instead.
+warning: your version of GraphicsMagick limits images to 8 bits per pixel
+EXPORT_PASSED: figures=10 csv=15 MAT_roundtrip=1, Nmax=2
+error: ignoring const execution_exception& while preparing to exit

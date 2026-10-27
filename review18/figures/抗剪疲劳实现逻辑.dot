@@ -1,0 +1,28 @@
+digraph fatigue {
+graph [rankdir=TB, bgcolor="white", pad="0.25", nodesep="0.32", ranksep="0.35", fontname="Noto Sans CJK SC", label="抗剪疲劳的软件实现逻辑｜本次上传代码\n蓝色：主控制　绿色：局部力学　橙色：模型假定　红色：停止/诊断", labelloc=t, fontsize=20];
+node [shape=box, style="rounded,filled", fillcolor="#eaf2ff", color="#4b6f99", fontname="Noto Sans CJK SC", fontsize=12, margin="0.16,0.12"];
+edge [color="#60758a", fontname="Noto Sans CJK SC", fontsize=10];
+a [label="① 试件、材料、荷载、数值与输出参数\nmain_drive → read_and_calculate → parameters\nQ：两加载点总力；目标剪力 V=Q/2 [F01]"];
+b [label="② 检查参数、求真实筋/裂缝交点\nprepare_parameters\n裂缝倾角 [S19式2]；实际筋角、两侧锚固长度 [F02]"];
+c [label="③ 初始化最大滑移、局部龄期、激活与损伤\nfatigue_calculate / create_memory\n可选初始静力路径：capacity_scan"];
+d [label="④ 求初始峰值及谷值的力平衡\nstate → trial（局部计算见另图）\nVc + Vs + Vf = Qmax/2 或 Qmin/2 [F11]"];
+e [shape=diamond, label="峰谷均成功？",fillcolor="#fff4dd"];
+f [label="⑤ 判断活跃节点\nactive_nodes\n超过0.75δm/历史已激活，且滑移差>容差 [F08]"];
+g [shape=diamond,label="存在启用的\n退化机制？",fillcolor="#fff4dd"];
+h [label="⑥ 提出 ΔN 的候选历史（尚不提交）\nfatigue_calculate / update_memory\n活跃节点龄期+ΔN；可选S–N/Miner [F08,F12]"];
+i [label="⑦ 候选峰值重新平衡\nstate → trial → bond_strength → anchorage\nτm 随局部龄期退化 [F05–F11]"];
+j [shape=diamond,label="峰值失败/位移增幅大\n且 ΔN>1？",fillcolor="#fff4dd"];
+k [label="ΔN减半，回到已接受历史重试\n候选损伤不污染原历史", fillcolor="#fff4dd"];
+l [label="⑧ 峰值成功后，重新求谷值\n两者成功才提交：N←N+ΔN、更新memory\nhistory_row + save_snapshot"];
+m [shape=diamond,label="N < Nmax\n且可继续平衡？",fillcolor="#fff4dd"];
+n [label="⑨ 输出与解释\nexport_results：MAT / CSV / PNG / 状态\n检查残差、分量、局部场，再做试验验证"];
+stop [label="区分停止原因\n局部数值失败 ≠ 真实破坏\n无域内指定分支根＝模型限制\n到Nmax＝runout，不能当疲劳寿命",fillcolor="#ffe8e5",color="#b9524c"];
+a->b->c->d->e;
+e->f [label="是"];e->stop [label="否"];
+f->g;g->h [label="是"];g->n [label="否：无退化runout"];
+h->i->j;j->k [label="是"];k->h;
+j->l [label="否，且峰值成功"];j->stop [label="最小块仍失败"];
+l->m [label="成功"];l->stop [label="谷值失败"];
+m->f [label="是"];m->n [label="到上限"];
+stop->n;
+}

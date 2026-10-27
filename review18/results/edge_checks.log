@@ -1,0 +1,13 @@
+FC_EC_SENSITIVITY_EQUAL=1
+ANGLE_OVERRIDE actual=28.21 formula=31.42
+ACTIVATION_REJECTED NaN id=cc19:input
+ACTIVATION_INVALID_ACCEPTED [0.5 0.75]
+ACTIVATION_REJECTED 1+1i id=cc19:input
+GEOMETRY_NAN_ACCEPTED nsmYBottom bars=0
+GEOMETRY_NAN_ACCEPTED nsmYTop bars=0
+INITIAL_LIMIT status=initial_user_concrete_strut_limit failureCycle=NaN bracket=[NaN NaN]
+OVERLOAD status=initial_no_equilibrium_in_model_domain N=0
+CONSTANT status=runout_no_active_degradation N=100 age=0
+REPEAT_EQUAL=1
+ENTRY=/workspace/audit18_uploaded/read_and_calculate.m
+error: ignoring const execution_exception& while preparing to exit

@@ -1,0 +1,4 @@
+DEFAULT status=runout_at_Nmax N=10000 rows=503 seconds=274.122 nBars=2 nSteel=2 angle=60 theta=28.21
+q0=0.489139556885 qEnd=0.505130241818 Vc=32255.0614356 Vs=33362.5750551 Vf=24382.3635226 globalResidual=0.0496488563222 localResidual=1.71894498635e-10 failed=0 maxAge=10000
+VERTICAL status=runout_at_Nmax N=10000 rows=503 seconds=276.182 nBars=2 qEnd=0.59891888747
+error: ignoring const execution_exception& while preparing to exit
