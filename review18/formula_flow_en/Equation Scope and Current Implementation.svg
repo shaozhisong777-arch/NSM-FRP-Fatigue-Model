@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="2100" viewBox="0 0 1560 2100">
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9Z" fill="#1685B6"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="780" y="30.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="28" text-anchor="middle" dominant-baseline="middle" fill="#243746">Equation Scope and Current Implementation</text>
+<rect x="240" y="80" width="1080" height="85" rx="14" fill="#E7F0FF" stroke="#6A7E90"/>
+<text x="780.0" y="122.5" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">How the supplied equations relate to the current shear code</text>
+<rect x="240" y="230" width="1080" height="150" rx="14" fill="#E5F3E9" stroke="#6A7E90"/>
+<text x="780.0" y="281.24" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Adopted: F, Eq. (1), trilinear envelope; F, Eq. (2), local fatigue degradation</text>
+<text x="780.0" y="305.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">bond.m / bond_strength.m; the 0.75δm threshold is used in active_nodes.m</text>
+<text x="780.0" y="328.76" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">The code adds zero-count protection, nonnegative peaks and a residual-stress rule.</text>
+<rect x="240" y="460" width="1080" height="170" rx="14" fill="#E5F3E9" stroke="#6A7E90"/>
+<text x="780.0" y="521.24" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Adapted principle: bond-stress integration in F, Eq. (10), and S, Eq. (10)</text>
+<text x="780.0" y="545.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Replace half-span coordinates with local coordinates on each anchor: Ti(x)=pf∫[x,Li]τi dξ</text>
+<text x="780.0" y="568.76" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">S, Eqs. (9d) and (11), motivate two-sided slip compatibility and intersection strain continuity.</text>
+<rect x="240" y="710" width="1080" height="170" rx="14" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="780.0" y="771.24" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Not directly implemented: F, Eq. (9b), analytical matrix; S, Eqs. (9a–c), analytical slip fields</text>
+<text x="780.0" y="795.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">anchorage.m assembles bar/bond stiffness and uses fixed-point iteration with a Newton fallback.</text>
+<text x="780.0" y="818.76" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">The numerical system is not the paper matrix merely because both are written as matrix equations.</text>
+<rect x="240" y="960" width="1080" height="170" rx="14" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="780.0" y="1021.24" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Not included: Ps/Pd from F, Eq. (11), and half-span Ls/Ld relations from F, Eq. (13)</text>
+<text x="780.0" y="1045.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">These belong to the longitudinal flexural IC-debonding model; its P is not this model’s total load Q.</text>
+<text x="780.0" y="1068.76" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">The current code does not calculate critical loads or half-span damage-zone lengths using these equations.</text>
+<rect x="240" y="1210" width="1080" height="170" rx="14" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="780.0" y="1271.24" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Not included: longitudinally strengthened beam deflection from F, Eq. (14)</text>
+<text x="780.0" y="1295.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">The eccentric longitudinal-reinforcement bending expression does not transfer directly to vertical NSM shear.</text>
+<text x="780.0" y="1318.76" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Here q is a vertical crack jump and w is crack opening; the paper’s deflection w is a different quantity.</text>
+<rect x="240" y="1460" width="1080" height="180" rx="14" fill="#E5F3E9" stroke="#6A7E90"/>
+<text x="780.0" y="1526.24" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Adopted equilibrium idea: E, Eq. (1), V=Vc+Vs+Vef</text>
+<text x="780.0" y="1550.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Here V=Vc+Vs+Vf, where Vf sums the actual NSM bar-force vertical components.</text>
+<text x="780.0" y="1573.76" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">E, Eq. (2), Vef,σ+Vef,τ, concerns the continuous ECC overlay and is not implemented for these NSM bars.</text>
+<rect x="240" y="1730" width="1080" height="160" rx="14" fill="#E7F0FF" stroke="#6A7E90"/>
+<text x="780.0" y="1786.24" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">This diagram describes the current calculation; the MATLAB source remains unchanged.</text>
+<text x="780.0" y="1810.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Implementing F, Eqs. (9b), (11), (13), or the complete S crack model requires separate modeling and validation.</text>
+<text x="780.0" y="1833.76" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Equations not yet implemented are not presented as executed calculation steps.</text>
+<text x="780" y="2055.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle" fill="#243746">R22: DOI suffix 0001251, intersecting reinforcement and shear-force decomposition. This update translates the diagrams only.</text>
+</svg>

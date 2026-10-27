@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="2550" viewBox="0 0 1560 2550">
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9Z" fill="#1685B6"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="780" y="30.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="28" text-anchor="middle" dominant-baseline="middle" fill="#243746">Formula-Mapped Shear Equilibrium Solver</text>
+<polyline points="715.0,170 715.0,215" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,215 708.0,197.0 722.0,197.0" fill="#1685B6"/>
+<polyline points="715.0,360 715.0,405" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,405 708.0,387.0 722.0,387.0" fill="#1685B6"/>
+<polyline points="715.0,545 715.0,590" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,590 708.0,572.0 722.0,572.0" fill="#1685B6"/>
+<polyline points="715.0,730 715.0,775" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,775 708.0,757.0 722.0,757.0" fill="#1685B6"/>
+<polyline points="715.0,915 715.0,960" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,960 708.0,942.0 722.0,942.0" fill="#1685B6"/>
+<polyline points="715.0,1075 715.0,1120" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,1120 708.0,1102.0 722.0,1102.0" fill="#1685B6"/>
+<polyline points="715.0,1300 715.0,1345" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,1345 708.0,1327.0 722.0,1327.0" fill="#1685B6"/>
+<polyline points="715.0,1495 715.0,1540" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,1540 708.0,1522.0 722.0,1522.0" fill="#1685B6"/>
+<polyline points="715.0,1690 715.0,1735" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,1735 708.0,1717.0 722.0,1717.0" fill="#1685B6"/>
+<polyline points="715.0,1860 715.0,1905" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,1905 708.0,1887.0 722.0,1887.0" fill="#1685B6"/>
+<polyline points="715.0,2055 715.0,2100" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,2100 708.0,2082.0 722.0,2082.0" fill="#1685B6"/>
+<polyline points="715.0,2215 715.0,2265" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,2265 708.0,2247.0 722.0,2247.0" fill="#1685B6"/>
+<text x="733.0" y="2228.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">Yes</text>
+<polyline points="1000,2157.5 1120,2157.5" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="1120,2157.5 1102.0,2164.5 1102.0,2150.5" fill="#1685B6"/>
+<text x="1078.0" y="2145.5" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">No</text>
+<polyline points="1450,2157.5 1510,2157 1510,117 1000,117.5" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="1000,117.5 1017.9931286076874,110.48235631374568 1018.0068540912871,124.48234958556905" fill="#1685B6"/>
+<text x="1420" y="1000.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">Yes: adjust q</text>
+<polyline points="1285.0,2215 1285.0,2265" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="1285.0,2265 1278.0,2247.0 1292.0,2247.0" fill="#1685B6"/>
+<text x="1303.0" y="2228.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">No</text>
+<rect x="430" y="65" width="570" height="105" rx="14" fill="#E7F0FF" stroke="#6A7E90"/>
+<text x="715.0" y="105.62" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Set the peak/valley target and accepted history; trial q</text>
+<text x="715.0" y="129.38" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">state: ascending-bracket scan and bisection; no trial commit</text>
+<rect x="430" y="215" width="570" height="145" rx="14" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="715.0" y="251.86" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">1. Crack kinematics (prescribed code relations)</text>
+<text x="715.0" y="275.62" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">g(y)=(1−y/hc)^m; K=cosθ+r sinθ</text>
+<text x="715.0" y="299.38" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">w₀=q/K; v₀=rw₀; w(y)=w₀g(y); v(y)=v₀g(y)</text>
+<text x="715.0" y="323.14" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">crack_deformation | S, Eq. 7 (PST/Green) not implemented</text>
+<rect x="430" y="405" width="570" height="140" rx="14" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="715.0" y="439.36" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">2. Concrete shear (empirical code closure)</text>
+<text x="715.0" y="463.12" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Vc=Vc0(1−exp(−q/qr))</text>
+<text x="715.0" y="486.88" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">×[ρc+(1−ρc)exp(−w₀/wc)](1−Dc)</text>
+<text x="715.0" y="510.64" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">trial | empirical parameters require calibration</text>
+<rect x="430" y="590" width="570" height="140" rx="14" fill="#EEF0F3" stroke="#6A7E90"/>
+<text x="715.0" y="624.36" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">3. Contribution of stirrups intersecting the crack</text>
+<text x="715.0" y="648.12" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">εs,j=qg(yj)/ls; σs,j=min(Esεs,j,fy); Vs=ΣAs,jσs,j</text>
+<text x="715.0" y="671.88" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">ls is assumed; stirrup stress is zero when damage reaches 1</text>
+<text x="715.0" y="695.64" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">trial | stress cap/sum: R22, Eqs. 9a, 9c</text>
+<rect x="430" y="775" width="570" height="140" rx="14" fill="#EEF0F3" stroke="#6A7E90"/>
+<text x="715.0" y="809.36" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">4. Project crack motion onto each intact FRP bar</text>
+<text x="715.0" y="833.12" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">δj=qg(yj)[sin(θ+αj)−r cos(θ+αj)]/K</text>
+<text x="715.0" y="856.88" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">For vertical bars (αj=90°): δj=qg(yj)</text>
+<text x="715.0" y="880.64" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">trial | not a direct substitution of S, Eq. 8</text>
+<rect x="430" y="960" width="570" height="115" rx="14" fill="#E5F3E9" stroke="#6A7E90"/>
+<text x="715.0" y="993.74" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">5. Update τm,i using local cycle counts [F, Eq. 2]</text>
+<text x="715.0" y="1017.5" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">τm,i=max{0,τm,0[1−kf log₁₀max(Ni,1)]}</text>
+<text x="715.0" y="1041.26" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">bond_strength; Ni counts local cycles after activation</text>
+<rect x="430" y="1120" width="570" height="180" rx="14" fill="#E5F3E9" stroke="#6A7E90"/>
+<text x="715.0" y="1162.48" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">6. Trilinear bond envelope [F, Eq. 1]; tr=min(τr,τm,i)</text>
+<text x="715.0" y="1186.24" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">τenv=τm,i·s/δm                         s≤δm</text>
+<text x="715.0" y="1210.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">τenv=tr+(τm,i−tr)(δu−s)/(δu−δm)    δm&lt;s≤δu</text>
+<text x="715.0" y="1233.76" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">τenv=tr                               s&gt;δu</text>
+<text x="715.0" y="1257.52" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">bond | residual clipping and secant history: code additions</text>
+<rect x="430" y="1345" width="570" height="150" rx="14" fill="#E5F3E9" stroke="#6A7E90"/>
+<text x="715.0" y="1384.36" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">7. Discretize both anchors and integrate bond stress</text>
+<text x="715.0" y="1408.12" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">dT/dx=−pfτ; ds/dx=−T/(EfAf); free-end T=0</text>
+<text x="715.0" y="1431.88" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Ti(x)=pf∫[x,Li]τi(ξ)dξ | anchorage / anchor_mesh</text>
+<text x="715.0" y="1455.64" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">F, Eq. 10; S, Eq. 10: adapted to local anchor coordinates</text>
+<rect x="430" y="1540" width="570" height="150" rx="14" fill="#E5F3E9" stroke="#6A7E90"/>
+<text x="715.0" y="1579.36" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">8. Enforce two-sided compatibility and strain continuity</text>
+<text x="715.0" y="1603.12" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">s₁(0)+s₂(0)=δj [S, Eq. 9d]; εf1(0)=εf2(0) [S, Eq. 11]</text>
+<text x="715.0" y="1626.88" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">The same EfAf on both sides gives T₁(0)=T₂(0)</text>
+<text x="715.0" y="1650.64" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Numerical iteration; not F, Eq. 9b or S, Eqs. 9a–c</text>
+<rect x="430" y="1735" width="570" height="125" rx="14" fill="#EEF0F3" stroke="#6A7E90"/>
+<text x="715.0" y="1773.74" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">9. Check debonding, tensile and user cover limits</text>
+<text x="715.0" y="1797.5" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Remove failed-bar force; repeat steps 4–9 for other bars</text>
+<text x="715.0" y="1821.26" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">trial: tensile cap Af·ffu; no FRP material-fatigue law yet</text>
+<rect x="430" y="1905" width="570" height="150" rx="14" fill="#E5F3E9" stroke="#6A7E90"/>
+<text x="715.0" y="1944.36" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">10. Sum FRP vertical forces and total shear</text>
+<text x="715.0" y="1968.12" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Vf=nfaces ΣTj sinαj; V=Vc+Vs+Vf=Q/2</text>
+<text x="715.0" y="1991.88" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Same force-decomposition idea as E, Eq. 1; Vf is NSM shear</text>
+<text x="715.0" y="2015.64" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">The ECC-overlay split Vef,σ+Vef,τ is not used</text>
+<polygon points="715.0,2100 1000,2157.5 715.0,2215 430,2157.5" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="715.0" y="2145.62" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Valid local solution AND</text>
+<text x="715.0" y="2169.38" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">|V(q)−Q/2|≤forceTolerance?</text>
+<rect x="430" y="2265" width="570" height="100" rx="14" fill="#E7F0FF" stroke="#6A7E90"/>
+<text x="715.0" y="2303.12" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Return the balanced peak/valley state and local fields</text>
+<text x="715.0" y="2326.88" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">The controller decides whether to accept the cycle block</text>
+<polygon points="1285.0,2100 1450,2157.5 1285.0,2215 1120,2157.5" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="1285.0" y="2146.94" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="#243746">Further scan/bisection</text>
+<text x="1285.0" y="2168.06" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="#243746">search available?</text>
+<rect x="1120" y="2265" width="330" height="140" rx="14" fill="#FFE2DE" stroke="#6A7E90"/>
+<text x="1285.0" y="2303.32" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="#243746">Return a classified diagnostic</text>
+<text x="1285.0" y="2324.44" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="#243746">No selected-branch root /</text>
+<text x="1285.0" y="2345.56" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="#243746">numerical failure / resolution limit</text>
+<text x="1285.0" y="2366.68" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="#243746">No automatic IC-debonding label</text>
+<text x="780" y="2505.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle" fill="#243746">F: DOI 10.1016/j.ijfatigue.2019.04.039; S: DOI suffix 0000953; E: CCENG-4395. Orange boxes include model assumptions.</text>
+</svg>

@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="2600" viewBox="0 0 1560 2600">
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9Z" fill="#1685B6"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="780" y="30.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="28" text-anchor="middle" dominant-baseline="middle" fill="#243746">Formula-Mapped Shear Fatigue Main Loop</text>
+<polyline points="715.0,140 715.0,185" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,185 708.0,167.0 722.0,167.0" fill="#1685B6"/>
+<polyline points="715.0,305 715.0,350" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,350 708.0,332.0 722.0,332.0" fill="#1685B6"/>
+<polyline points="715.0,470 715.0,510" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,510 708.0,492.0 722.0,492.0" fill="#1685B6"/>
+<polyline points="715.0,610 715.0,655" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,655 708.0,637.0 722.0,637.0" fill="#1685B6"/>
+<text x="733.0" y="620.5" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">Yes: save N=0</text>
+<polyline points="1000,560.0 1510,560 1510,2120 1450,2120.0" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="1450,2120.0 1468.0,2113.0 1468.0,2127.0" fill="#1685B6"/>
+<text x="1273.0" y="548.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">No</text>
+<polyline points="715.0,755 715.0,795" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,795 708.0,777.0 722.0,777.0" fill="#1685B6"/>
+<text x="733.0" y="763.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">Yes</text>
+<polyline points="430,705.0 350,705.0" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="350,705.0 368.0,698.0 368.0,712.0" fill="#1685B6"/>
+<text x="408.0" y="693.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">No</text>
+<polyline points="50,705.0 20,705 20,2415 430,2415.0" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="430,2415.0 412.0,2422.0 412.0,2408.0" fill="#1685B6"/>
+<polyline points="715.0,915 715.0,960" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,960 708.0,942.0 722.0,942.0" fill="#1685B6"/>
+<polyline points="715.0,1070 715.0,1110" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,1110 708.0,1092.0 722.0,1092.0" fill="#1685B6"/>
+<text x="733.0" y="1078.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">Yes</text>
+<polyline points="430,1015.0 350,1020.0" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="350,1020.0 367.5282984096057,1011.8908227998265 368.4015944157782,1025.863558898587" fill="#1685B6"/>
+<text x="408.0" y="1005.5" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">No</text>
+<polyline points="50,1020.0 20,1020 20,2415 430,2415.0" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="430,2415.0 412.0,2422.0 412.0,2408.0" fill="#1685B6"/>
+<polyline points="715.0,1230 715.0,1270" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,1270 708.0,1252.0 722.0,1252.0" fill="#1685B6"/>
+<polyline points="715.0,1390 715.0,1430" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,1430 708.0,1412.0 722.0,1412.0" fill="#1685B6"/>
+<polyline points="715.0,1550 715.0,1590" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,1590 708.0,1572.0 722.0,1572.0" fill="#1685B6"/>
+<polyline points="1000,1645.0 1475,1645 1475,1325 1450,1325.0" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="1450,1325.0 1468.0,1318.0 1468.0,1332.0" fill="#1685B6"/>
+<text x="1255.5" y="1633.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">Yes</text>
+<polyline points="1120,1325.0 1060,1325 1060,1330 1000,1330.0" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="1000,1330.0 1018.0,1323.0 1018.0,1337.0" fill="#1685B6"/>
+<polyline points="715.0,1700 715.0,1740" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,1740 708.0,1722.0 722.0,1722.0" fill="#1685B6"/>
+<text x="733.0" y="1708.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">No</text>
+<polyline points="715.0,1840 715.0,1880" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,1880 708.0,1862.0 722.0,1862.0" fill="#1685B6"/>
+<text x="733.0" y="1848.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">Yes</text>
+<polyline points="1000,1790.0 1070,1790 1070,2120 1120,2120.0" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="1120,2120.0 1102.0,2127.0 1102.0,2113.0" fill="#1685B6"/>
+<text x="1053.0" y="1778.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">No</text>
+<polyline points="715.0,2000 715.0,2040" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,2040 708.0,2022.0 722.0,2022.0" fill="#1685B6"/>
+<polyline points="715.0,2140 715.0,2180" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="715.0,2180 708.0,2162.0 722.0,2162.0" fill="#1685B6"/>
+<text x="733.0" y="2148.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">Yes</text>
+<polyline points="1000,2090.0 1120,2120.0" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="1120,2120.0 1100.8396856221298,2122.4253562503636 1104.2351843726383,2108.8433612483286" fill="#1685B6"/>
+<text x="1078.0" y="2093.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">No</text>
+<polyline points="430,2240.0 375,2240 375,705 430,705.0" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="430,705.0 412.0,712.0 412.0,698.0" fill="#1685B6"/>
+<text x="290" y="1700.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" text-anchor="middle" dominant-baseline="middle" fill="#B8302E">Next block</text>
+<polyline points="1285.0,2200 1285,2415 1000,2415.0" fill="none" stroke="#1685B6" stroke-width="3" marker-end="url(#a)"/>
+<polygon points="1000,2415.0 1018.0,2408.0 1018.0,2422.0" fill="#1685B6"/>
+<rect x="430" y="60" width="570" height="80" rx="14" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="715.0" y="100.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Start: specify the specimen and total loads Qmax, Qmin</text>
+<rect x="430" y="185" width="570" height="120" rx="14" fill="#E7F0FF" stroke="#6A7E90"/>
+<text x="715.0" y="221.24" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Locate actual crack–reinforcement intersections</text>
+<text x="715.0" y="245.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Initialize N=0, local counts Ni=0 and slip/failure history</text>
+<text x="715.0" y="268.76" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">parameters / prepare_parameters / fatigue_calculate</text>
+<rect x="430" y="350" width="570" height="120" rx="14" fill="#E5F3E9" stroke="#6A7E90"/>
+<text x="715.0" y="386.24" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Solve initial peak and valley shear equilibrium in order</text>
+<text x="715.0" y="410.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Vc(q)+Vs(q)+Vf(q)=Qmax/2 or Qmin/2</text>
+<text x="715.0" y="433.76" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">state → trial; internal calculation on page 2</text>
+<polygon points="715.0,510 1000,560.0 715.0,610 430,560.0" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="715.0" y="548.12" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Initial peak and valley</text>
+<text x="715.0" y="571.88" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">solutions successful?</text>
+<polygon points="715.0,655 1000,705.0 715.0,755 430,705.0" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="715.0" y="705.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">N &lt; Nmax?</text>
+<rect x="430" y="795" width="570" height="120" rx="14" fill="#E7F0FF" stroke="#6A7E90"/>
+<text x="715.0" y="831.24" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Identify active nodes from peak–valley slip</text>
+<text x="715.0" y="855.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">(smax&gt;0.75δm or previously activated) AND slip range&gt;tol</text>
+<text x="715.0" y="878.76" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">active_nodes | F: threshold; history/range gates: code rules</text>
+<polygon points="715.0,960 1000,1015.0 715.0,1070 430,1015.0" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="715.0" y="1003.12" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Active nodes, or enabled</text>
+<text x="715.0" y="1026.88" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">steel/concrete S–N rules?</text>
+<rect x="430" y="1110" width="570" height="120" rx="14" fill="#E7F0FF" stroke="#6A7E90"/>
+<text x="715.0" y="1146.24" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Choose ΔN without passing the next snapshot or Nmax</text>
+<text x="715.0" y="1170.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Propose Ni,new=Ni,old+ΔN at active nodes only</text>
+<text x="715.0" y="1193.76" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Keep the accepted history unchanged until acceptance</text>
+<rect x="430" y="1270" width="570" height="120" rx="14" fill="#E5F3E9" stroke="#6A7E90"/>
+<text x="715.0" y="1306.24" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Update nodal peak bond stress [F, Eq. 2]</text>
+<text x="715.0" y="1330.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">τm,i=max{0,[1−kf log₁₀max(Ni,1)]τm,0}</text>
+<text x="715.0" y="1353.76" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">kf=0.1965 (rod) or 0.1985 (strip) | bond_strength</text>
+<rect x="430" y="1430" width="570" height="120" rx="14" fill="#E5F3E9" stroke="#6A7E90"/>
+<text x="715.0" y="1466.24" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Use the updated bond law to solve peak equilibrium</text>
+<text x="715.0" y="1490.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Crack jump q → slip profiles → bar forces → shear</text>
+<text x="715.0" y="1513.76" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">state → trial → anchorage / bond (page 2)</text>
+<polygon points="715.0,1590 1000,1645.0 715.0,1700 430,1645.0" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="715.0" y="1633.12" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Peak failed or q grew too fast,</text>
+<text x="715.0" y="1656.88" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">AND ΔN &gt; 1?</text>
+<polygon points="715.0,1740 1000,1790.0 715.0,1840 430,1790.0" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="715.0" y="1778.12" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Candidate peak</text>
+<text x="715.0" y="1801.88" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">equilibrium successful?</text>
+<rect x="430" y="1880" width="570" height="120" rx="14" fill="#E5F3E9" stroke="#6A7E90"/>
+<text x="715.0" y="1916.24" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Use peak maximum-slip history to solve the valley state</text>
+<text x="715.0" y="1940.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">FRP bond stress = historical secant stiffness × current slip</text>
+<text x="715.0" y="1963.76" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">state → trial; valley shear target Qmin/2</text>
+<polygon points="715.0,2040 1000,2090.0 715.0,2140 430,2090.0" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="715.0" y="2078.12" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Candidate valley</text>
+<text x="715.0" y="2101.88" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">equilibrium successful?</text>
+<rect x="430" y="2180" width="570" height="120" rx="14" fill="#E7F0FF" stroke="#6A7E90"/>
+<text x="715.0" y="2216.24" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Accept the block: N←N+ΔN; commit candidate history</text>
+<text x="715.0" y="2240.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Save q, w, v, Vc, Vs, Vf and local slip/strain/failure fields</text>
+<text x="715.0" y="2263.76" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">fatigue_calculate / save_snapshot</text>
+<rect x="430" y="2360" width="570" height="110" rx="14" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="715.0" y="2403.12" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">Stop and export the last accepted response</text>
+<text x="715.0" y="2426.88" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" text-anchor="middle" dominant-baseline="middle" fill="#243746">export_results; reaching Nmax is a runout, not fatigue life</text>
+<rect x="1120" y="1255" width="330" height="140" rx="14" fill="#E7F0FF" stroke="#6A7E90"/>
+<text x="1285.0" y="1303.88" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="#243746">Reduce the cycle block</text>
+<text x="1285.0" y="1325.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="#243746">ΔN←max[1,floor(ΔN/2)]</text>
+<text x="1285.0" y="1346.12" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="#243746">Retry from the same accepted history</text>
+<rect x="1120" y="2040" width="330" height="160" rx="14" fill="#FFE2DE" stroke="#6A7E90"/>
+<text x="1285.0" y="2088.32" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="#243746">Record the stopping reason</text>
+<text x="1285.0" y="2109.44" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="#243746">Numerical failure / user limit /</text>
+<text x="1285.0" y="2130.56" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="#243746">no root on the selected branch</text>
+<text x="1285.0" y="2151.68" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="#243746">Do not label every stop as debonding</text>
+<rect x="50" y="655" width="300" height="100" rx="14" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="200.0" y="694.44" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="#243746">Cycle limit reached</text>
+<text x="200.0" y="715.56" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="#243746">Report runout</text>
+<rect x="50" y="960" width="300" height="120" rx="14" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="200.0" y="998.88" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="#243746">No active degradation mechanism</text>
+<text x="200.0" y="1020.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="#243746">Record snapshots up to Nmax</text>
+<text x="200.0" y="1041.12" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="#243746">Report runout without degradation</text>
+<text x="780" y="2555.0" font-family="Arial,DejaVu Sans,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle" fill="#243746">F: 2019 flexural-fatigue modeling paper; S: 2019 single-crack shear paper; E: 2024 ECC-FRP paper. Equation numbers need a paper prefix.</text>
+</svg>

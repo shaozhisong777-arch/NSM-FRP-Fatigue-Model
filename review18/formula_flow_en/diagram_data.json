@@ -1,0 +1,863 @@
+[
+  {
+    "name": "Formula-Mapped Shear Fatigue Main Loop",
+    "width": 1560,
+    "height": 2600,
+    "nodes": [
+      {
+        "id": "start",
+        "text": "Start: specify the specimen and total loads Qmax, Qmin",
+        "x": 430,
+        "y": 60,
+        "w": 570,
+        "h": 80,
+        "kind": "round",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "input",
+        "text": "Locate actual crack–reinforcement intersections\nInitialize N=0, local counts Ni=0 and slip/failure history\nparameters / prepare_parameters / fatigue_calculate",
+        "x": 430,
+        "y": 185,
+        "w": 570,
+        "h": 120,
+        "kind": "box",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "initial",
+        "text": "Solve initial peak and valley shear equilibrium in order\nVc(q)+Vs(q)+Vf(q)=Qmax/2 or Qmin/2\nstate → trial; internal calculation on page 2",
+        "x": 430,
+        "y": 350,
+        "w": 570,
+        "h": 120,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "ok0",
+        "text": "Initial peak and valley\nsolutions successful?",
+        "x": 430,
+        "y": 510,
+        "w": 570,
+        "h": 100,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "limit",
+        "text": "N < Nmax?",
+        "x": 430,
+        "y": 655,
+        "w": 570,
+        "h": 100,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "active",
+        "text": "Identify active nodes from peak–valley slip\n(smax>0.75δm or previously activated) AND slip range>tol\nactive_nodes | F: threshold; history/range gates: code rules",
+        "x": 430,
+        "y": 795,
+        "w": 570,
+        "h": 120,
+        "kind": "box",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "on",
+        "text": "Active nodes, or enabled\nsteel/concrete S–N rules?",
+        "x": 430,
+        "y": 960,
+        "w": 570,
+        "h": 110,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "step",
+        "text": "Choose ΔN without passing the next snapshot or Nmax\nPropose Ni,new=Ni,old+ΔN at active nodes only\nKeep the accepted history unchanged until acceptance",
+        "x": 430,
+        "y": 1110,
+        "w": 570,
+        "h": 120,
+        "kind": "box",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "proposal",
+        "text": "Update nodal peak bond stress [F, Eq. 2]\nτm,i=max{0,[1−kf log₁₀max(Ni,1)]τm,0}\nkf=0.1965 (rod) or 0.1985 (strip) | bond_strength",
+        "x": 430,
+        "y": 1270,
+        "w": 570,
+        "h": 120,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "peak",
+        "text": "Use the updated bond law to solve peak equilibrium\nCrack jump q → slip profiles → bar forces → shear\nstate → trial → anchorage / bond (page 2)",
+        "x": 430,
+        "y": 1430,
+        "w": 570,
+        "h": 120,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "retry",
+        "text": "Peak failed or q grew too fast,\nAND ΔN > 1?",
+        "x": 430,
+        "y": 1590,
+        "w": 570,
+        "h": 110,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "peakok",
+        "text": "Candidate peak\nequilibrium successful?",
+        "x": 430,
+        "y": 1740,
+        "w": 570,
+        "h": 100,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "low",
+        "text": "Use peak maximum-slip history to solve the valley state\nFRP bond stress = historical secant stiffness × current slip\nstate → trial; valley shear target Qmin/2",
+        "x": 430,
+        "y": 1880,
+        "w": 570,
+        "h": 120,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "lowok",
+        "text": "Candidate valley\nequilibrium successful?",
+        "x": 430,
+        "y": 2040,
+        "w": 570,
+        "h": 100,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "accept",
+        "text": "Accept the block: N←N+ΔN; commit candidate history\nSave q, w, v, Vc, Vs, Vf and local slip/strain/failure fields\nfatigue_calculate / save_snapshot",
+        "x": 430,
+        "y": 2180,
+        "w": 570,
+        "h": 120,
+        "kind": "box",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "output",
+        "text": "Stop and export the last accepted response\nexport_results; reaching Nmax is a runout, not fatigue life",
+        "x": 430,
+        "y": 2360,
+        "w": 570,
+        "h": 110,
+        "kind": "round",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "half",
+        "text": "Reduce the cycle block\nΔN←max[1,floor(ΔN/2)]\nRetry from the same accepted history",
+        "x": 1120,
+        "y": 1255,
+        "w": 330,
+        "h": 140,
+        "kind": "box",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "stop",
+        "text": "Record the stopping reason\nNumerical failure / user limit /\nno root on the selected branch\nDo not label every stop as debonding",
+        "x": 1120,
+        "y": 2040,
+        "w": 330,
+        "h": 160,
+        "kind": "box",
+        "color": "FFE2DE"
+      },
+      {
+        "id": "runout",
+        "text": "Cycle limit reached\nReport runout",
+        "x": 50,
+        "y": 655,
+        "w": 300,
+        "h": 100,
+        "kind": "box",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "inactive",
+        "text": "No active degradation mechanism\nRecord snapshots up to Nmax\nReport runout without degradation",
+        "x": 50,
+        "y": 960,
+        "w": 300,
+        "h": 120,
+        "kind": "box",
+        "color": "FFE9CD"
+      }
+    ],
+    "edges": [
+      {
+        "a": "start",
+        "b": "input",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "input",
+        "b": "initial",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "initial",
+        "b": "ok0",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "ok0",
+        "b": "limit",
+        "label": "Yes: save N=0",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "ok0",
+        "b": "stop",
+        "label": "No",
+        "ap": "r",
+        "bp": "r",
+        "via": [
+          [
+            1510,
+            560
+          ],
+          [
+            1510,
+            2120
+          ]
+        ]
+      },
+      {
+        "a": "limit",
+        "b": "active",
+        "label": "Yes",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "limit",
+        "b": "runout",
+        "label": "No",
+        "ap": "l",
+        "bp": "r",
+        "via": []
+      },
+      {
+        "a": "runout",
+        "b": "output",
+        "label": "",
+        "ap": "l",
+        "bp": "l",
+        "via": [
+          [
+            20,
+            705
+          ],
+          [
+            20,
+            2415
+          ]
+        ]
+      },
+      {
+        "a": "active",
+        "b": "on",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "on",
+        "b": "step",
+        "label": "Yes",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "on",
+        "b": "inactive",
+        "label": "No",
+        "ap": "l",
+        "bp": "r",
+        "via": []
+      },
+      {
+        "a": "inactive",
+        "b": "output",
+        "label": "",
+        "ap": "l",
+        "bp": "l",
+        "via": [
+          [
+            20,
+            1020
+          ],
+          [
+            20,
+            2415
+          ]
+        ]
+      },
+      {
+        "a": "step",
+        "b": "proposal",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "proposal",
+        "b": "peak",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "peak",
+        "b": "retry",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "retry",
+        "b": "half",
+        "label": "Yes",
+        "ap": "r",
+        "bp": "r",
+        "via": [
+          [
+            1475,
+            1645
+          ],
+          [
+            1475,
+            1325
+          ]
+        ]
+      },
+      {
+        "a": "half",
+        "b": "proposal",
+        "label": "",
+        "ap": "l",
+        "bp": "r",
+        "via": [
+          [
+            1060,
+            1325
+          ],
+          [
+            1060,
+            1330
+          ]
+        ]
+      },
+      {
+        "a": "retry",
+        "b": "peakok",
+        "label": "No",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "peakok",
+        "b": "low",
+        "label": "Yes",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "peakok",
+        "b": "stop",
+        "label": "No",
+        "ap": "r",
+        "bp": "l",
+        "via": [
+          [
+            1070,
+            1790
+          ],
+          [
+            1070,
+            2120
+          ]
+        ]
+      },
+      {
+        "a": "low",
+        "b": "lowok",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "lowok",
+        "b": "accept",
+        "label": "Yes",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "lowok",
+        "b": "stop",
+        "label": "No",
+        "ap": "r",
+        "bp": "l",
+        "via": []
+      },
+      {
+        "a": "accept",
+        "b": "limit",
+        "label": "Next block",
+        "ap": "l",
+        "bp": "l",
+        "via": [
+          [
+            375,
+            2240
+          ],
+          [
+            375,
+            705
+          ]
+        ],
+        "lp": [
+          290,
+          1700
+        ]
+      },
+      {
+        "a": "stop",
+        "b": "output",
+        "label": "",
+        "ap": "b",
+        "bp": "r",
+        "via": [
+          [
+            1285,
+            2415
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Formula-Mapped Shear Equilibrium Solver",
+    "width": 1560,
+    "height": 2550,
+    "nodes": [
+      {
+        "id": "start",
+        "text": "Set the peak/valley target and accepted history; trial q\nstate: ascending-bracket scan and bisection; no trial commit",
+        "x": 430,
+        "y": 65,
+        "w": 570,
+        "h": 105,
+        "kind": "round",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "crack",
+        "text": "1. Crack kinematics (prescribed code relations)\ng(y)=(1−y/hc)^m; K=cosθ+r sinθ\nw₀=q/K; v₀=rw₀; w(y)=w₀g(y); v(y)=v₀g(y)\ncrack_deformation | S, Eq. 7 (PST/Green) not implemented",
+        "x": 430,
+        "y": 215,
+        "w": 570,
+        "h": 145,
+        "kind": "box",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "vc",
+        "text": "2. Concrete shear (empirical code closure)\nVc=Vc0(1−exp(−q/qr))\n×[ρc+(1−ρc)exp(−w₀/wc)](1−Dc)\ntrial | empirical parameters require calibration",
+        "x": 430,
+        "y": 405,
+        "w": 570,
+        "h": 140,
+        "kind": "box",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "vs",
+        "text": "3. Contribution of stirrups intersecting the crack\nεs,j=qg(yj)/ls; σs,j=min(Esεs,j,fy); Vs=ΣAs,jσs,j\nls is assumed; stirrup stress is zero when damage reaches 1\ntrial | stress cap/sum: R22, Eqs. 9a, 9c",
+        "x": 430,
+        "y": 590,
+        "w": 570,
+        "h": 140,
+        "kind": "box",
+        "color": "EEF0F3"
+      },
+      {
+        "id": "bar",
+        "text": "4. Project crack motion onto each intact FRP bar\nδj=qg(yj)[sin(θ+αj)−r cos(θ+αj)]/K\nFor vertical bars (αj=90°): δj=qg(yj)\ntrial | not a direct substitution of S, Eq. 8",
+        "x": 430,
+        "y": 775,
+        "w": 570,
+        "h": 140,
+        "kind": "box",
+        "color": "EEF0F3"
+      },
+      {
+        "id": "tm",
+        "text": "5. Update τm,i using local cycle counts [F, Eq. 2]\nτm,i=max{0,τm,0[1−kf log₁₀max(Ni,1)]}\nbond_strength; Ni counts local cycles after activation",
+        "x": 430,
+        "y": 960,
+        "w": 570,
+        "h": 115,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "bond",
+        "text": "6. Trilinear bond envelope [F, Eq. 1]; tr=min(τr,τm,i)\nτenv=τm,i·s/δm                         s≤δm\nτenv=tr+(τm,i−tr)(δu−s)/(δu−δm)    δm<s≤δu\nτenv=tr                               s>δu\nbond | residual clipping and secant history: code additions",
+        "x": 430,
+        "y": 1120,
+        "w": 570,
+        "h": 180,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "anchor",
+        "text": "7. Discretize both anchors and integrate bond stress\ndT/dx=−pfτ; ds/dx=−T/(EfAf); free-end T=0\nTi(x)=pf∫[x,Li]τi(ξ)dξ | anchorage / anchor_mesh\nF, Eq. 10; S, Eq. 10: adapted to local anchor coordinates",
+        "x": 430,
+        "y": 1345,
+        "w": 570,
+        "h": 150,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "compat",
+        "text": "8. Enforce two-sided compatibility and strain continuity\ns₁(0)+s₂(0)=δj [S, Eq. 9d]; εf1(0)=εf2(0) [S, Eq. 11]\nThe same EfAf on both sides gives T₁(0)=T₂(0)\nNumerical iteration; not F, Eq. 9b or S, Eqs. 9a–c",
+        "x": 430,
+        "y": 1540,
+        "w": 570,
+        "h": 150,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "fail",
+        "text": "9. Check debonding, tensile and user cover limits\nRemove failed-bar force; repeat steps 4–9 for other bars\ntrial: tensile cap Af·ffu; no FRP material-fatigue law yet",
+        "x": 430,
+        "y": 1735,
+        "w": 570,
+        "h": 125,
+        "kind": "box",
+        "color": "EEF0F3"
+      },
+      {
+        "id": "sum",
+        "text": "10. Sum FRP vertical forces and total shear\nVf=nfaces ΣTj sinαj; V=Vc+Vs+Vf=Q/2\nSame force-decomposition idea as E, Eq. 1; Vf is NSM shear\nThe ECC-overlay split Vef,σ+Vef,τ is not used",
+        "x": 430,
+        "y": 1905,
+        "w": 570,
+        "h": 150,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "ok",
+        "text": "Valid local solution AND\n|V(q)−Q/2|≤forceTolerance?",
+        "x": 430,
+        "y": 2100,
+        "w": 570,
+        "h": 115,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "return",
+        "text": "Return the balanced peak/valley state and local fields\nThe controller decides whether to accept the cycle block",
+        "x": 430,
+        "y": 2265,
+        "w": 570,
+        "h": 100,
+        "kind": "round",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "more",
+        "text": "Further scan/bisection\nsearch available?",
+        "x": 1120,
+        "y": 2100,
+        "w": 330,
+        "h": 115,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "diag",
+        "text": "Return a classified diagnostic\nNo selected-branch root /\nnumerical failure / resolution limit\nNo automatic IC-debonding label",
+        "x": 1120,
+        "y": 2265,
+        "w": 330,
+        "h": 140,
+        "kind": "box",
+        "color": "FFE2DE"
+      }
+    ],
+    "edges": [
+      {
+        "a": "start",
+        "b": "crack",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "crack",
+        "b": "vc",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "vc",
+        "b": "vs",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "vs",
+        "b": "bar",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "bar",
+        "b": "tm",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "tm",
+        "b": "bond",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "bond",
+        "b": "anchor",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "anchor",
+        "b": "compat",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "compat",
+        "b": "fail",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "fail",
+        "b": "sum",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "sum",
+        "b": "ok",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "ok",
+        "b": "return",
+        "label": "Yes",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "ok",
+        "b": "more",
+        "label": "No",
+        "ap": "r",
+        "bp": "l",
+        "via": []
+      },
+      {
+        "a": "more",
+        "b": "start",
+        "label": "Yes: adjust q",
+        "ap": "r",
+        "bp": "r",
+        "via": [
+          [
+            1510,
+            2157
+          ],
+          [
+            1510,
+            117
+          ]
+        ],
+        "lp": [
+          1420,
+          1000
+        ]
+      },
+      {
+        "a": "more",
+        "b": "diag",
+        "label": "No",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      }
+    ]
+  },
+  {
+    "name": "Equation Scope and Current Implementation",
+    "width": 1560,
+    "height": 2100,
+    "nodes": [
+      {
+        "id": "a",
+        "text": "How the supplied equations relate to the current shear code",
+        "x": 240,
+        "y": 80,
+        "w": 1080,
+        "h": 85,
+        "kind": "round",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "b",
+        "text": "Adopted: F, Eq. (1), trilinear envelope; F, Eq. (2), local fatigue degradation\nbond.m / bond_strength.m; the 0.75δm threshold is used in active_nodes.m\nThe code adds zero-count protection, nonnegative peaks and a residual-stress rule.",
+        "x": 240,
+        "y": 230,
+        "w": 1080,
+        "h": 150,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "c",
+        "text": "Adapted principle: bond-stress integration in F, Eq. (10), and S, Eq. (10)\nReplace half-span coordinates with local coordinates on each anchor: Ti(x)=pf∫[x,Li]τi dξ\nS, Eqs. (9d) and (11), motivate two-sided slip compatibility and intersection strain continuity.",
+        "x": 240,
+        "y": 460,
+        "w": 1080,
+        "h": 170,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "d",
+        "text": "Not directly implemented: F, Eq. (9b), analytical matrix; S, Eqs. (9a–c), analytical slip fields\nanchorage.m assembles bar/bond stiffness and uses fixed-point iteration with a Newton fallback.\nThe numerical system is not the paper matrix merely because both are written as matrix equations.",
+        "x": 240,
+        "y": 710,
+        "w": 1080,
+        "h": 170,
+        "kind": "box",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "e",
+        "text": "Not included: Ps/Pd from F, Eq. (11), and half-span Ls/Ld relations from F, Eq. (13)\nThese belong to the longitudinal flexural IC-debonding model; its P is not this model’s total load Q.\nThe current code does not calculate critical loads or half-span damage-zone lengths using these equations.",
+        "x": 240,
+        "y": 960,
+        "w": 1080,
+        "h": 170,
+        "kind": "box",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "f",
+        "text": "Not included: longitudinally strengthened beam deflection from F, Eq. (14)\nThe eccentric longitudinal-reinforcement bending expression does not transfer directly to vertical NSM shear.\nHere q is a vertical crack jump and w is crack opening; the paper’s deflection w is a different quantity.",
+        "x": 240,
+        "y": 1210,
+        "w": 1080,
+        "h": 170,
+        "kind": "box",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "g",
+        "text": "Adopted equilibrium idea: E, Eq. (1), V=Vc+Vs+Vef\nHere V=Vc+Vs+Vf, where Vf sums the actual NSM bar-force vertical components.\nE, Eq. (2), Vef,σ+Vef,τ, concerns the continuous ECC overlay and is not implemented for these NSM bars.",
+        "x": 240,
+        "y": 1460,
+        "w": 1080,
+        "h": 180,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "h",
+        "text": "This diagram describes the current calculation; the MATLAB source remains unchanged.\nImplementing F, Eqs. (9b), (11), (13), or the complete S crack model requires separate modeling and validation.\nEquations not yet implemented are not presented as executed calculation steps.",
+        "x": 240,
+        "y": 1730,
+        "w": 1080,
+        "h": 160,
+        "kind": "box",
+        "color": "E7F0FF"
+      }
+    ],
+    "edges": []
+  }
+]
