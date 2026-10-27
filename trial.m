@@ -61,8 +61,8 @@ for bar = 1:p.nBars
     crackExtension = max(0, q * shape * projection);
 
     % Local aging controls the bond peak separately on the two sides.
-    tauPeak1 = cc19_strength(p, memory.age{bar, 1});
-    tauPeak2 = cc19_strength(p, memory.age{bar, 2});
+    tauPeak1 = bond_strength(p, memory.age{bar, 1});
+    tauPeak2 = bond_strength(p, memory.age{bar, 2});
     history1 = memory.bondMax{bar, 1};
     history2 = memory.bondMax{bar, 2};
     anchor = anchorage(p, crackExtension, lowerLength, upperLength, ...
