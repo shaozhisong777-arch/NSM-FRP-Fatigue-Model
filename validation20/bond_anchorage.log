@@ -1,0 +1,14 @@
+warning: matrix singular to machine precision
+warning: called from
+    cc19_hard>cc19_anchor_newton at line 121 column 13
+    cc19_hard at line 70 column 10
+    /workspace/NSM-FRP-Fatigue-Model/validation20/anchorage_check.m at line 15 column 5
+
+warning: matrix singular to machine precision
+warning: called from
+    anchorage>cc19_anchor_newton at line 156 column 13
+    anchorage at line 100 column 10
+    /workspace/NSM-FRP-Fatigue-Model/validation20/anchorage_check.m at line 16 column 5
+
+ALL48_ANCHOR_CHECKS_PASSED: exact fields, unequal lengths, loading/unloading and forced Newton fallback.
+error: ignoring const execution_exception& while preparing to exit

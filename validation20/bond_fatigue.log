@@ -1,0 +1,13 @@
+strip_initial: exact match, runout_at_Nmax, rows=2
+rod_initial: exact match, runout_no_active_degradation, rows=2
+active_bond_fatigue: exact match, runout_at_Nmax, rows=5
+control_without_NSM: exact match, runout_no_active_degradation, rows=3
+zero_load_range: exact match, runout_no_active_degradation, rows=4
+steel_Miner: exact match, runout_at_Nmax, rows=3
+concrete_Miner: exact match, runout_at_Nmax, rows=3
+initial_overload: exact match, initial_no_equilibrium_in_model_domain, rows=0
+capacity_scan: exact match, runout_at_Nmax, rows=2
+forced_cycle_step_halving: exact match, runout_at_Nmax, rows=9
+model_domain_failure: exact match, no_equilibrium_in_model_domain, rows=6
+ALL11_REFERENCE_COMPARISONS_AND_ENTRY_CALL_PASSED
+error: ignoring const execution_exception& while preparing to exit

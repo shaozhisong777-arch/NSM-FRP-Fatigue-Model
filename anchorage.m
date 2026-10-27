@@ -59,8 +59,8 @@ function a = anchorage(p, delta, L1, L2, hist1, hist2, tm1, tm2, unload)
             h1 = max(hist1, s1);
             h2 = max(hist2, s2);
         end
-        [~, k1] = cc19_propagate(p, h1, tm1);
-        [~, k2] = cc19_propagate(p, h2, tm2);
+        [~, k1] = bond(p, h1, tm1);
+        [~, k2] = bond(p, h2, tm2);
         c1 = p.perimeter * w1 .* k1;
         c2 = p.perimeter * w2 .* k2;
         bondDiagonal = zeros(m, 1);
@@ -113,8 +113,8 @@ function a = anchorage(p, delta, L1, L2, hist1, hist2, tm1, tm2, unload)
         h1 = max(hist1, s1);
         h2 = max(hist2, s2);
     end
-    [~, k1] = cc19_propagate(p, h1, tm1);
-    [~, k2] = cc19_propagate(p, h2, tm2);
+    [~, k1] = bond(p, h1, tm1);
+    [~, k2] = bond(p, h2, tm2);
     t1 = k1 .* s1;
     t2 = k2 .* s2;
     F1 = p.perimeter * sum(w1 .* t1);
@@ -188,8 +188,8 @@ function [R, J] = cc19_anchor_residual(p, u, d, barStiffness, leftIndex, rightIn
         m1 = max(h1, s1);
         m2 = max(h2, s2);
     end
-    [~, k1] = cc19_propagate(p, m1, t1);
-    [~, k2] = cc19_propagate(p, m2, t2);
+    [~, k1] = bond(p, m1, t1);
+    [~, k2] = bond(p, m2, t2);
     a1 = k1;
     a2 = k2;
     % Use the envelope tangent only where the historical slip is exceeded.
@@ -232,8 +232,8 @@ function [R, J] = cc19_anchor_residual(p, u, d, barStiffness, leftIndex, rightIn
 end
 
 function a = cc19_anchor_output(p, x1, x2, s1, s2, h1, h2, tm1, tm2, F1, F2, it, ok, status)
-    [~, k1, z1] = cc19_propagate(p, h1, tm1);
-    [~, k2, z2] = cc19_propagate(p, h2, tm2);
+    [~, k1, z1] = bond(p, h1, tm1);
+    [~, k2, z2] = bond(p, h2, tm2);
     t1 = k1 .* s1;
     t2 = k2 .* s2;
     F = (F1 + F2) / 2;
