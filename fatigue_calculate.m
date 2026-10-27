@@ -20,7 +20,7 @@ memory = create_memory(p);
 out = create_output(p, memory);
 
 if p.computeCapacity
-    out.initialCapacity = cc19_critical(p, memory);
+    out.initialCapacity = capacity_scan(p, memory);
 end
 
 %% 2. Solve the first maximum-load and minimum-load states.

@@ -1,0 +1,23 @@
+scenario=1: exact match, status=sampled_model_domain_capacity
+scenario=2: exact match, status=sampled_model_domain_capacity
+scenario=3: exact match, status=sampled_model_domain_capacity
+scenario=4: exact match, status=sampled_model_domain_capacity
+warning: matrix singular to machine precision
+warning: called from
+    cc19_hard>cc19_anchor_newton at line 121 column 13
+    cc19_hard at line 70 column 10
+    cc19_trial at line 35 column 9
+    cc19_critical at line 9 column 9
+    /workspace/NSM-FRP-Fatigue-Model/validation20/capacity_scan_check.m at line 31 column 5
+
+warning: matrix singular to machine precision
+warning: called from
+    anchorage>cc19_anchor_newton at line 156 column 13
+    anchorage at line 100 column 10
+    trial at line 68 column 5
+    capacity_scan at line 16 column 9
+    /workspace/NSM-FRP-Fatigue-Model/validation20/capacity_scan_check.m at line 32 column 5
+
+scenario=5: exact match, status=sampled_model_domain_capacity
+ALL5_CAPACITY_CHECKS_PASSED: exact curve, peak, location and status.
+error: ignoring const execution_exception& while preparing to exit
