@@ -7,6 +7,7 @@
 - [12页中文讲解PPT](抗剪疲劳逻辑与审查_CN.pptx)
 - [整体逻辑图PNG](figures/抗剪疲劳实现逻辑.png) / [可缩放SVG](figures/抗剪疲劳实现逻辑.svg)
 - [一次局部计算图PNG](figures/局部力学计算.png) / [可缩放SVG](figures/局部力学计算.svg)
+- [完全可编辑的两页逻辑图PPT](抗剪疲劳逻辑图_完全可编辑_CN.pptx)：节点、文字、公式与箭头都是原生对象；竖向16×24英寸画布，建议放大后编辑。
 - [两张逻辑图PDF](抗剪疲劳逻辑图_CN.pdf)
 - [完整运行摘要](results/完整运行摘要.md)
 - [网格及活跃区补充](results/活跃区与细网格说明.md)
@@ -34,3 +35,9 @@ GNU Octave 10.3.0；没有在MATLAB实际运行，没有新增试验标定。
 check_export.m使用Octave/gnuplot无界面绘图设置。若在MATLAB运行，删除graphics_toolkit('gnuplot')这一行；这里是移植提示，不是已完成MATLAB验证。Octave运行还需安装可用的gnuplot及中文字体；数值检查不依赖中文字体。
 
 下载文件时在GitHub文件页点击 **Download raw**。Word/PPT/ZIP是二进制文件，网页预览不可用时直接下载。历史根目录说明对应逐次修改过程；本文件夹报告以这次上传的18文件为准。
+
+## 编辑逻辑图PPT
+
+打开“抗剪疲劳逻辑图_完全可编辑_CN.pptx”，单击节点修改文字，拖动形状调整位置；在“开始→选择→选择窗格”中按节点或箭头名称选择对象。公式是可编辑Unicode文本。箭头保留节点连接关系与自定义曲线路径；移动节点后检查回路线，可重新路由或编辑顶点。文件没有插入逻辑图图片。
+
+两页分别为整体流程和局部力学计算；F编号对应审查报告。重建脚本为tools/build_editable_flow.py，依赖Graphviz及python-pptx。
