@@ -1,0 +1,107 @@
+from pathlib import Path
+import json
+from pptx import Presentation
+from pptx.util import Inches,Pt
+from pptx.dml.color import RGBColor
+from pptx.enum.shapes import MSO_SHAPE
+from pptx.oxml.xmlchemy import OxmlElement
+ROOT=Path(__file__).resolve().parent
+# Each record summarizes one of the 16 files in the user's screenshot.
+items=[
+('main_drive.m','主驱动脚本','Main driver script','启动与输入 / Setup',
+'设置本次算例并启动整个计算。','Configure a case and start the calculation.',
+['选择条材或杆材。','按需覆盖本次运行参数。','调用统一入口，保留计算结果。'],
+['Select FRP strips or rods.','Optionally override parameters for this run.','Call the main entry and retain the results.']),
+('parameters.m','默认参数','Default parameters','启动与输入 / Setup',
+'集中提供模型和计算的默认设置。','Provide the default model and analysis settings.',
+['定义几何、材料、黏结和荷载参数。','设置循环数及数值控制参数。','设置绘图和文件导出选项。'],
+['Define geometry, materials, bond and loading parameters.','Set cycle limits and numerical controls.','Set plotting and file-export options.']),
+('read_and_calculate.m','统一入口','Calculation entry point','启动与输入 / Setup',
+'连接参数读取、疲劳计算和结果导出。','Link parameter loading, fatigue analysis and result export.',
+['读取默认参数并应用本次覆盖值。','调用疲劳计算主函数。','根据开关调用绘图与导出。'],
+['Load defaults and apply run-specific overrides.','Call the fatigue analysis controller.','Trigger plotting and export when enabled.']),
+('prepare_parameters.m','参数检查与几何准备','Parameter checks and geometry','模型准备 / Model preparation',
+'检查输入并建立求解需要的几何信息。','Check inputs and prepare the geometry used by the solver.',
+['检查参数范围和相互关系。','确定裂缝与FRP筋的真实交点。','计算两侧锚固长度及穿缝箍筋位置。'],
+['Check parameter ranges and consistency.','Locate actual crack–FRP intersections.','Calculate anchor lengths and intersecting stirrup positions.']),
+('fatigue_calculate.m','疲劳计算总控制','Fatigue analysis controller','循环控制 / Cycle control',
+'组织峰谷平衡、损伤更新和循环推进。','Coordinate load-state equilibrium, history updates and cycle progression.',
+['初始化历史并求初始峰谷状态。','提出候选循环块，必要时减半重试。','接受有效状态并记录结果和停止原因。'],
+['Initialize history and solve the initial peak and valley states.','Propose cycle blocks and halve them when required.','Accept valid states and record results and stop reasons.']),
+('capacity_scan.m','初始抗剪响应扫描','Initial shear-response scan','静力诊断 / Static diagnostic',
+'提供当前历史下的可选静力路径诊断。','Provide an optional static-path diagnostic for the current history.',
+['按递增裂缝位移计算抗剪响应。','保留成功点的加载历史。','记录有效采样峰值与数值失败点。'],
+['Sample shear resistance at increasing crack displacement.','Carry forward successful loading history.','Record the sampled peak and numerical failures.']),
+('state.m','抗剪平衡求解','Shear-equilibrium solver','平衡求解 / Equilibrium',
+'寻找满足目标剪力的裂缝竖向位移差。','Find the vertical crack jump that balances the target shear.',
+['设置峰值或谷值的搜索范围。','扫描并二分搜索有效平衡根。','返回平衡响应或具体求解诊断。'],
+['Set the peak- or valley-state search interval.','Scan and bisect to find a valid equilibrium root.','Return the balanced response or a specific diagnostic.']),
+('trial.m','单次抗剪响应计算','Single trial response','局部力学 / Mechanical response',
+'在给定裂缝位移下计算各项抗剪贡献。','Evaluate shear-resistance components at a prescribed crack jump.',
+['计算混凝土和箍筋贡献。','逐根求FRP锚固响应并检查筋失效。','汇总FRP竖向力与总抗剪力。'],
+['Calculate concrete and stirrup contributions.','Solve each FRP anchor response and check bar failure.','Sum FRP vertical forces and total shear resistance.']),
+('crack_deformation.m','裂缝变形分布','Crack-deformation profiles','局部力学 / Mechanical response',
+'由裂缝竖向位移尺度得到指定的变形分布。','Generate prescribed crack profiles from the vertical crack-jump scale.',
+['建立沿裂缝高度的形状分布。','计算法向张开和切向滑移。','返回竖向、水平位移差及绘图数据。'],
+['Define the profile along the crack height.','Calculate normal opening and tangential sliding.','Return vertical/horizontal jumps and profile data.']),
+('bond_strength.m','黏结峰值疲劳退化','Fatigue degradation of bond peaks','界面疲劳 / Interface fatigue',
+'按节点局部循环数计算退化后的黏结峰值。','Calculate degraded peak bond stress from local cycle counts.',
+['检查局部循环历史。','区分杆材和条材的退化系数。','返回非负的节点峰值黏结应力。'],
+['Check the local cycle history.','Use the rod- or strip-specific degradation coefficient.','Return nonnegative nodal peak bond stresses.']),
+('anchorage.m','双侧锚固求解','Two-sided anchorage solver','锚固与黏结 / Anchorage and bond',
+'求裂缝两侧锚固段的滑移和筋力。','Solve slip and bar force on both sides of the crack.',
+['组装杆单元和黏结刚度。','迭代满足两侧滑移协调与力平衡。','返回局部应力、应变及脱黏状态。'],
+['Assemble bar-element and bond stiffness.','Iterate to satisfy slip compatibility and force balance.','Return local stresses, strains and debonding status.']),
+('anchor_mesh.m','锚固网格','Anchorage mesh','锚固与黏结 / Anchorage and bond',
+'为一个锚固段建立一维数值离散。','Create a one-dimensional discretization of an anchor segment.',
+['按设定单元数生成节点位置。','计算各单元长度。','提供梯形积分的节点权重。'],
+['Generate nodes using the specified element count.','Calculate element lengths.','Provide nodal trapezoidal integration weights.']),
+('bond.m','黏结本构关系','Bond constitutive relation','锚固与黏结 / Anchorage and bond',
+'根据历史最大滑移计算黏结包络和刚度。','Evaluate the bond envelope and stiffness from maximum slip history.',
+['判断弹性、软化或残余阶段。','计算包络应力及割线刚度。','供锚固求解计算当前黏结应力。'],
+['Identify the elastic, softening or residual branch.','Calculate envelope stress and secant stiffness.','Supply stiffness for current anchor-stress evaluation.']),
+('active_nodes.m','疲劳活跃节点判断','Active fatigue-node selection','界面疲劳 / Interface fatigue',
+'判断哪些节点可以累计本步疲劳循环。','Identify nodes eligible to accumulate local fatigue cycles.',
+['检查滑移阈值和历史激活记录。','检查峰谷滑移差是否超过容差。','返回活跃标志及滑移差。'],
+['Check the slip threshold and previous activation.','Check that the peak–valley slip range exceeds tolerance.','Return active-node flags and slip ranges.']),
+('save_snapshot.m','计算快照整理','Response snapshot assembly','结果处理 / Results',
+'整理选定循环数的响应和局部场数据。','Assemble response and local-field data at selected cycle counts.',
+['按筋、锚固侧和节点整理局部场。','记录箍筋响应及裂缝变形分布。','返回快照结构体，供后续绘图和导出。'],
+['Organize fields by bar, anchor side and node.','Record stirrup responses and crack profiles.','Return snapshot data for plotting and export.']),
+('export_results.m','绘图与结果导出','Plotting and result export','结果处理 / Results',
+'将计算结果转换为图像和可读取的数据文件。','Convert analysis results into figures and readable data files.',
+['绘制循环历史、几何和局部场。','导出MAT、CSV和PNG。','记录计算状态、残差及失效信息。'],
+['Plot cycle histories, geometry and local profiles.','Export MAT, CSV and PNG files.','Record analysis status, residuals and failure information.']),
+]
+prs=Presentation();prs.slide_width=Inches(13.333);prs.slide_height=Inches(7.5)
+NAVY='173A5E';TEXT='263A4D';GRAY='63758A';BLUE='EAF2FF';GREEN='EAF5EE'
+def textbox(sl,x,y,w,h,content,size=22,color=TEXT,bold=False):
+ sh=sl.shapes.add_textbox(Inches(x), Inches(y), Inches(w), Inches(h));sh.text_frame.word_wrap=True
+ sh.text_frame.margin_left=sh.text_frame.margin_right=0
+ sh.text_frame.margin_top=sh.text_frame.margin_bottom=0
+ p=sh.text_frame.paragraphs[0];p.text=content;p.font.name='Arial';p.font.size=Pt(size);p.font.bold=bold;p.font.color.rgb=RGBColor.from_string(color)
+ for run in p.runs:
+  run._r.get_or_add_rPr().set('lang','zh-CN')
+  fonts=OxmlElement('a:ea');fonts.set('typeface','Microsoft YaHei');run._r.get_or_add_rPr().append(fonts)
+ return sh
+for i,rec in enumerate(items,1):
+ filename,cn,en,group,cs,es,cb,eb=rec
+ sl=prs.slides.add_slide(prs.slide_layouts[6])
+ bar=sl.shapes.add_shape(MSO_SHAPE.RECTANGLE,0,0,prs.slide_width,Inches(.12));bar.fill.solid();bar.fill.fore_color.rgb=RGBColor.from_string(NAVY);bar.line.fill.background()
+ textbox(sl,.6,.36,11.9,.6,filename,30,NAVY,True)
+ textbox(sl,.6,1.06,12,.5,cn+'  |  '+en,20,GRAY)
+ for x,fill,title,summary,bullets in [(.6,BLUE,'中文',cs,cb),(6.87,GREEN,'English',es,eb)]:
+  panel=sl.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(x), Inches(1.9), Inches(5.86), Inches(4.7));panel.fill.solid();panel.fill.fore_color.rgb=RGBColor.from_string(fill);panel.line.fill.background()
+  textbox(sl,x+.25,2.13,5.36,.35,title,17,NAVY,True)
+  textbox(sl,x+.25,2.67,5.36,.95,summary,22,TEXT,True)
+  for k,bullet in enumerate(bullets):textbox(sl,x+.25,3.96+k*.78,5.32,.72,'• '+bullet,19,TEXT)
+ textbox(sl,.6,6.95,11.7,.25,group,12,GRAY)
+ textbox(sl,12.15,6.95,.65,.25,f'{i:02d}/16',12,GRAY)
+ sl.notes_slide.notes_text_frame.text=f'{filename}\n{cs}\n{es}'
+out=ROOT/'16个代码作用总结_中英双语.pptx';prs.save(out)
+(ROOT/'slide_content.json').write_text(json.dumps(items,ensure_ascii=False,indent=2))
+md=['# 16个代码的作用总结｜Chinese / English','每个文件对应PPT一页，仅总结作用，不展开公式。']
+for rec in items:
+ fn,cn,en,group,cs,es,cb,eb=rec;md+=['',f'## {fn} — {cn} / {en}',cs,es,'']+[f'- {a}\n  {b}' for a,b in zip(cb,eb)]
+(ROOT/'作用总结_中英.md').write_text('\n'.join(md))
+print('Created',len(prs.slides),'bilingual slides:',out)

@@ -2,6 +2,7 @@
 
 **结论：程序能形成简化准静态抗剪疲劳计算链，但目前不能当作已验证的抗剪疲劳预测模型。** 网格对疲劳增量的影响、经验混凝土/裂缝关系、角度与输入校验问题需要先处理。
 
+- [16个代码的作用总结：中英双语PPT，每个文件一页](slides16/README.md)
 - [English version: editable formula-mapped calculation flowcharts](formula_flow_en/README.md)
 - [根据公式截图重画：带论文式号与实现范围的计算逻辑图](formula_flow/README.md)
 - [计算逻辑图：物理量、公式、循环与判断，可编辑PPT/draw.io](calculation_flow/README.md)
