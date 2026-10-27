@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#60758A"/></marker></defs>
+<rect width="1600" height="1000" fill="white"/>
+<path d="M772.5,159.0 L772.5,180.0" stroke="#60758A" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M772.5,254.0 L467.5,280.0" stroke="#60758A" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M772.5,254.0 L772.5,280.0" stroke="#60758A" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M772.5,254.0 L1382.5,280.0" stroke="#60758A" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M772.5,354.0 L162.5,400" stroke="#60758A" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M772.5,354.0 L467.5,400" stroke="#60758A" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M772.5,354.0 L772.5,400" stroke="#60758A" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M772.5,354.0 L1077.5,400" stroke="#60758A" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M772.5,354.0 L1382.5,400" stroke="#60758A" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M467.5,474.0 L772.5,525.0" stroke="#60758A" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M772.5,474.0 L772.5,525.0" stroke="#60758A" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M772.5,599.0 L1382.5,655.0" stroke="#60758A" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M772.5,599.0 L467.5,655.0" stroke="#60758A" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M772.5,599.0 L772.5,655.0" stroke="#60758A" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M772.5,729.0 L622.5,785.0" stroke="#60758A" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M772.5,729.0 L927.5,785.0" stroke="#60758A" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M1382.5,474.0 L1382.5,655.0" stroke="#60758A" fill="none" stroke-width="1.5" marker-end="url(#arrow)"/>
+<g font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" fill="#18334D" text-anchor="middle">
+<text x="800" y="48" font-size="28">18 个 MATLAB 文件之间的调用逻辑</text>
+<rect x="640.0" y="85.0" width="265.0" height="74.0" rx="10" fill="#EAF2FF" stroke="#5E7893"/>
+<text x="772.5" y="114.0" font-size="17">main_drive.m</text><text x="772.5" y="140.0" font-size="16">主驱动脚本</text>
+<rect x="640.0" y="180.0" width="265.0" height="74.0" rx="10" fill="#EAF2FF" stroke="#5E7893"/>
+<text x="772.5" y="209.0" font-size="17">read_and_calculate.m</text><text x="772.5" y="235.0" font-size="16">读取参数、启动计算及导出</text>
+<rect x="335.0" y="280.0" width="265.0" height="74.0" rx="10" fill="#EAF2FF" stroke="#5E7893"/>
+<text x="467.5" y="309.0" font-size="17">parameters.m</text><text x="467.5" y="335.0" font-size="16">提供默认参数</text>
+<rect x="640.0" y="280.0" width="265.0" height="74.0" rx="10" fill="#DCEBFF" stroke="#5E7893"/>
+<text x="772.5" y="309.0" font-size="17">fatigue_calculate.m</text><text x="772.5" y="335.0" font-size="16">控制疲劳循环与历史更新</text>
+<rect x="1250.0" y="280.0" width="265.0" height="74.0" rx="10" fill="#EAF2FF" stroke="#5E7893"/>
+<text x="1382.5" y="309.0" font-size="17">export_results.m</text><text x="1382.5" y="335.0" font-size="16">绘图、导出结果</text>
+<rect x="30.0" y="400" width="265.0" height="74.0" rx="10" fill="#EAF2FF" stroke="#5E7893"/>
+<text x="162.5" y="429" font-size="17">prepare_parameters.m</text><text x="162.5" y="455" font-size="16">检查参数、准备几何</text>
+<rect x="335.0" y="400" width="265.0" height="74.0" rx="10" fill="#EAF2FF" stroke="#5E7893"/>
+<text x="467.5" y="429" font-size="17">capacity_scan.m</text><text x="467.5" y="455" font-size="16">可选：初始承载路径扫描</text>
+<rect x="640.0" y="400" width="265.0" height="74.0" rx="10" fill="#EAF2FF" stroke="#5E7893"/>
+<text x="772.5" y="429" font-size="17">state.m</text><text x="772.5" y="455" font-size="16">求峰值、谷值的抗剪平衡</text>
+<rect x="944.9999999999999" y="400" width="265.0" height="74.0" rx="10" fill="#EAF2FF" stroke="#5E7893"/>
+<text x="1077.5" y="429" font-size="17">active_nodes.m</text><text x="1077.5" y="455" font-size="16">选择疲劳活跃节点</text>
+<rect x="1250.0" y="400" width="265.0" height="74.0" rx="10" fill="#EAF2FF" stroke="#5E7893"/>
+<text x="1382.5" y="429" font-size="17">save_snapshot.m</text><text x="1382.5" y="455" font-size="16">整理指定循环的局部场</text>
+<rect x="640.0" y="525.0" width="265.0" height="74.0" rx="10" fill="#E6F4EA" stroke="#5E7893"/>
+<text x="772.5" y="554.0" font-size="17">trial.m</text><text x="772.5" y="580.0" font-size="16">给定 q，计算一次抗剪响应</text>
+<rect x="335.0" y="655.0" width="265.0" height="74.0" rx="10" fill="#E6F4EA" stroke="#5E7893"/>
+<text x="467.5" y="684.0" font-size="17">bond_strength.m</text><text x="467.5" y="710.0" font-size="16">由局部循环数求退化峰值</text>
+<rect x="640.0" y="655.0" width="265.0" height="74.0" rx="10" fill="#E6F4EA" stroke="#5E7893"/>
+<text x="772.5" y="684.0" font-size="17">anchorage.m</text><text x="772.5" y="710.0" font-size="16">求每根筋的双侧锚固响应</text>
+<rect x="1250.0" y="655.0" width="265.0" height="74.0" rx="10" fill="#FFF0D9" stroke="#5E7893"/>
+<text x="1382.5" y="684.0" font-size="17">crack_deformation.m</text><text x="1382.5" y="710.0" font-size="16">计算裂缝张开与滑移分布</text>
+<rect x="490.00000000000006" y="785.0" width="265.0" height="74.0" rx="10" fill="#E6F4EA" stroke="#5E7893"/>
+<text x="622.5" y="814.0" font-size="17">anchor_mesh.m</text><text x="622.5" y="840.0" font-size="16">生成锚固节点与积分权重</text>
+<rect x="795.0" y="785.0" width="265.0" height="74.0" rx="10" fill="#E6F4EA" stroke="#5E7893"/>
+<text x="927.5" y="814.0" font-size="17">bond.m</text><text x="927.5" y="840.0" font-size="16">黏结应力、刚度和阶段</text>
+<rect x="30.0" y="740.0" width="265.0" height="74.0" rx="10" fill="#F1F1F1" stroke="#5E7893"/>
+<text x="162.5" y="769.0" font-size="17">beam_load.m</text><text x="162.5" y="795.0" font-size="16">辅助计算弯矩、剪力</text>
+<rect x="30.0" y="835.0" width="265.0" height="74.0" rx="10" fill="#F1F1F1" stroke="#5E7893"/>
+<text x="162.5" y="864.0" font-size="17">shearfoce.m</text><text x="162.5" y="890.0" font-size="16">额外桁架对照，可删除</text>
+<text x="162" y="722" font-size="17">未接入主流程</text><text x="800" y="960" font-size="18">箭头表示直接调用；灰色文件未接入当前主流程。</text></g></svg>

@@ -7,6 +7,7 @@
 - [12页中文讲解PPT](抗剪疲劳逻辑与审查_CN.pptx)
 - [整体逻辑图PNG](figures/抗剪疲劳实现逻辑.png) / [可缩放SVG](figures/抗剪疲劳实现逻辑.svg)
 - [一次局部计算图PNG](figures/局部力学计算.png) / [可缩放SVG](figures/局部力学计算.svg)
+- [18个文件调用图：draw.io、标准可编辑PPT与SVG](editable/README.md)
 - [完全可编辑的两页逻辑图PPT](抗剪疲劳逻辑图_完全可编辑_CN.pptx)：节点、文字、公式与箭头都是原生对象；竖向16×24英寸画布，建议放大后编辑。
 - [两张逻辑图PDF](抗剪疲劳逻辑图_CN.pdf)
 - [完整运行摘要](results/完整运行摘要.md)
