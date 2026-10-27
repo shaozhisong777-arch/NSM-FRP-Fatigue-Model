@@ -8,6 +8,9 @@ English translation of the three-page Chinese formula-mapped diagram. MATLAB sou
 
 ## Downloads
 
+- [配套中文演讲稿（Word）](英文逻辑图配套中文演讲稿.docx)
+- [配套中文演讲稿（在线阅读）](英文逻辑图中文演讲稿.md)
+
 - [Editable PowerPoint](formula_mapped_shear_fatigue_editable_EN.pptx)
 - [Editable draw.io diagram](formula_mapped_shear_fatigue_editable_EN.drawio)
 - [PDF preview](formula_mapped_shear_fatigue_EN.pdf)
