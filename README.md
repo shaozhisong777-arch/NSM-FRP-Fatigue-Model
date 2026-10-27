@@ -4,6 +4,8 @@
 
 ## 逐文件改名与新手版（进行中）
 
+当前主脚本：[main_drive.m](main_drive.m)，调用已更新的 read_and_calculate；[运行说明](docs/main_drive_guide_CN.md)。
+
 - [parameters.m](parameters.m)：保留p结构，英文注释。
 - [read_and_calculate.m](read_and_calculate.m)：统一入口，已调用fatigue_calculate。
 - [fatigue_calculate.m](fatigue_calculate.m)：本次上传cc19_run的简单语法改写；不另加计算模块文件。
