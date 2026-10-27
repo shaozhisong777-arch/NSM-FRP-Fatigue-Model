@@ -304,5 +304,5 @@ snapshot.peak = peak;
 snapshot.minimum = low;
 snapshot.field = save_snapshot(p, peak, memory);
 snapshot.memory = memory;
-snapshot.reference = cc19_paper_interpolation(p, peak);
+snapshot.reference = paper_reference(p, peak);
 end

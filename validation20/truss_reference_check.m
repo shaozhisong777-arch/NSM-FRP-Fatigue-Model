@@ -12,7 +12,7 @@ for kind = {'strip','rod'}
             st.barForce = forces{1}; st.Vnsm = 23456;
             a = cc19_shearforce(p,st); b = shearfoce(p,st);
             assert(isequaln(a,b));
-            assert(isequaln(b,cc19_paper_interpolation(p,st)));
+            assert(isequaln(b,paper_reference(p,st)));
             count = count + 1;
         end
     end
