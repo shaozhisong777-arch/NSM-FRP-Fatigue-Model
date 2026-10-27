@@ -1,0 +1,863 @@
+[
+  {
+    "name": "公式对应版｜抗剪疲劳主循环",
+    "width": 1560,
+    "height": 2600,
+    "nodes": [
+      {
+        "id": "start",
+        "text": "开始：输入真实试件与峰谷总荷载 Qmax、Qmin",
+        "x": 430,
+        "y": 60,
+        "w": 570,
+        "h": 80,
+        "kind": "round",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "input",
+        "text": "准备裂缝与筋的真实交点、两侧锚固长度\n初始化 N=0、局部龄期 Ni=0、最大滑移和失效记录\nparameters / prepare_parameters / fatigue_calculate",
+        "x": 430,
+        "y": 185,
+        "w": 570,
+        "h": 120,
+        "kind": "box",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "initial",
+        "text": "依次求初始峰值和谷值抗剪平衡\nVc(q)+Vs(q)+Vf(q)=Qmax/2 或 Qmin/2\nstate → trial；内部计算见第2页",
+        "x": 430,
+        "y": 350,
+        "w": 570,
+        "h": 120,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "ok0",
+        "text": "初始峰、谷求解成功？",
+        "x": 430,
+        "y": 510,
+        "w": 570,
+        "h": 100,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "limit",
+        "text": "N < Nmax？",
+        "x": 430,
+        "y": 655,
+        "w": 570,
+        "h": 100,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "active",
+        "text": "根据峰谷滑移判断本步活跃节点\n(smax>0.75δm 或曾激活)，且峰谷滑移差>容差\nactive_nodes｜F：阈值；历史保持与容差为代码规则",
+        "x": 430,
+        "y": 795,
+        "w": 570,
+        "h": 120,
+        "kind": "box",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "on",
+        "text": "有活跃节点或启用了\n其他材料 S–N 退化？",
+        "x": 430,
+        "y": 960,
+        "w": 570,
+        "h": 110,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "step",
+        "text": "选取循环块 ΔN，不跨越下一快照或 Nmax\n从已接受历史提出候选：Ni,new=Ni,old+ΔN\n仅活跃节点增加龄期；候选尚不提交",
+        "x": 430,
+        "y": 1110,
+        "w": 570,
+        "h": 120,
+        "kind": "box",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "proposal",
+        "text": "更新节点峰值黏结应力 [F式2]\nτm,i=max{0,[1−kf log₁₀max(Ni,1)]τm,0}\nkf=0.1965（杆）或0.1985（条）｜bond_strength",
+        "x": 430,
+        "y": 1270,
+        "w": 570,
+        "h": 120,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "peak",
+        "text": "将 τm,i 代入黏结本构，重新求峰值平衡\n由裂缝位移q → 滑移场 → 筋力 → 抗剪力\nstate → trial → anchorage / bond（见第2页）",
+        "x": 430,
+        "y": 1430,
+        "w": 570,
+        "h": 120,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "retry",
+        "text": "峰值失败或 q 增长过快，\n且 ΔN > 1？",
+        "x": 430,
+        "y": 1590,
+        "w": 570,
+        "h": 110,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "peakok",
+        "text": "候选峰值平衡成功？",
+        "x": 430,
+        "y": 1740,
+        "w": 570,
+        "h": 100,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "low",
+        "text": "继承峰值最大滑移历史，求谷值平衡\n当前FRP黏结应力＝历史割线刚度×当前滑移\nstate → trial；谷值目标剪力 Qmin/2",
+        "x": 430,
+        "y": 1880,
+        "w": 570,
+        "h": 120,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "lowok",
+        "text": "候选谷值平衡成功？",
+        "x": 430,
+        "y": 2040,
+        "w": 570,
+        "h": 100,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "accept",
+        "text": "接受本循环块：N←N+ΔN，提交候选历史\n保存 q、w、v、Vc、Vs、Vf 与局部滑移/应变/失效\nfatigue_calculate / save_snapshot",
+        "x": 430,
+        "y": 2180,
+        "w": 570,
+        "h": 120,
+        "kind": "box",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "output",
+        "text": "停止并输出最后有效状态\nexport_results；达到Nmax为runout，不等于疲劳寿命",
+        "x": 430,
+        "y": 2360,
+        "w": 570,
+        "h": 110,
+        "kind": "round",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "half",
+        "text": "减小循环块\nΔN←max[1,floor(ΔN/2)]\n从同一份已接受历史重算",
+        "x": 1120,
+        "y": 1255,
+        "w": 330,
+        "h": 140,
+        "kind": "box",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "stop",
+        "text": "记录停止原因\n局部数值失败 / 用户限制 /\n域内指定分支无平衡根\n不能统一写成“脱黏破坏”",
+        "x": 1120,
+        "y": 2040,
+        "w": 330,
+        "h": 160,
+        "kind": "box",
+        "color": "FFE2DE"
+      },
+      {
+        "id": "runout",
+        "text": "达到循环上限\n记录runout",
+        "x": 50,
+        "y": 655,
+        "w": 300,
+        "h": 100,
+        "kind": "box",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "inactive",
+        "text": "没有可演化退化项\n记录快照至Nmax\n无活跃退化runout",
+        "x": 50,
+        "y": 960,
+        "w": 300,
+        "h": 120,
+        "kind": "box",
+        "color": "FFE9CD"
+      }
+    ],
+    "edges": [
+      {
+        "a": "start",
+        "b": "input",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "input",
+        "b": "initial",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "initial",
+        "b": "ok0",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "ok0",
+        "b": "limit",
+        "label": "是：保存N=0",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "ok0",
+        "b": "stop",
+        "label": "否",
+        "ap": "r",
+        "bp": "r",
+        "via": [
+          [
+            1510,
+            560
+          ],
+          [
+            1510,
+            2120
+          ]
+        ]
+      },
+      {
+        "a": "limit",
+        "b": "active",
+        "label": "是",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "limit",
+        "b": "runout",
+        "label": "否",
+        "ap": "l",
+        "bp": "r",
+        "via": []
+      },
+      {
+        "a": "runout",
+        "b": "output",
+        "label": "",
+        "ap": "l",
+        "bp": "l",
+        "via": [
+          [
+            20,
+            705
+          ],
+          [
+            20,
+            2415
+          ]
+        ]
+      },
+      {
+        "a": "active",
+        "b": "on",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "on",
+        "b": "step",
+        "label": "是",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "on",
+        "b": "inactive",
+        "label": "否",
+        "ap": "l",
+        "bp": "r",
+        "via": []
+      },
+      {
+        "a": "inactive",
+        "b": "output",
+        "label": "",
+        "ap": "l",
+        "bp": "l",
+        "via": [
+          [
+            20,
+            1020
+          ],
+          [
+            20,
+            2415
+          ]
+        ]
+      },
+      {
+        "a": "step",
+        "b": "proposal",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "proposal",
+        "b": "peak",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "peak",
+        "b": "retry",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "retry",
+        "b": "half",
+        "label": "是",
+        "ap": "r",
+        "bp": "r",
+        "via": [
+          [
+            1475,
+            1645
+          ],
+          [
+            1475,
+            1325
+          ]
+        ]
+      },
+      {
+        "a": "half",
+        "b": "proposal",
+        "label": "",
+        "ap": "l",
+        "bp": "r",
+        "via": [
+          [
+            1060,
+            1325
+          ],
+          [
+            1060,
+            1330
+          ]
+        ]
+      },
+      {
+        "a": "retry",
+        "b": "peakok",
+        "label": "否",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "peakok",
+        "b": "low",
+        "label": "是",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "peakok",
+        "b": "stop",
+        "label": "否",
+        "ap": "r",
+        "bp": "l",
+        "via": [
+          [
+            1070,
+            1790
+          ],
+          [
+            1070,
+            2120
+          ]
+        ]
+      },
+      {
+        "a": "low",
+        "b": "lowok",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "lowok",
+        "b": "accept",
+        "label": "是",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "lowok",
+        "b": "stop",
+        "label": "否",
+        "ap": "r",
+        "bp": "l",
+        "via": []
+      },
+      {
+        "a": "accept",
+        "b": "limit",
+        "label": "下一循环块",
+        "ap": "l",
+        "bp": "l",
+        "via": [
+          [
+            375,
+            2240
+          ],
+          [
+            375,
+            705
+          ]
+        ],
+        "lp": [
+          290,
+          1700
+        ]
+      },
+      {
+        "a": "stop",
+        "b": "output",
+        "label": "",
+        "ap": "b",
+        "bp": "r",
+        "via": [
+          [
+            1285,
+            2415
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "name": "公式对应版｜抗剪平衡内部求解",
+    "width": 1560,
+    "height": 2550,
+    "nodes": [
+      {
+        "id": "start",
+        "text": "给定峰/谷目标剪力与已接受历史，选取试探 q\nstate：扫描上升符号变化及二分；不提交试探历史",
+        "x": 430,
+        "y": 65,
+        "w": 570,
+        "h": 105,
+        "kind": "round",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "crack",
+        "text": "① 裂缝运动（当前代码的指定关系）\ng(y)=(1−y/hc)^m；K=cosθ+r sinθ\nw₀=q/K；v₀=rw₀；w(y)=w₀g(y)，v(y)=v₀g(y)\ncrack_deformation｜未实现S式7的PST/Green求解",
+        "x": 430,
+        "y": 215,
+        "w": 570,
+        "h": 145,
+        "kind": "box",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "vc",
+        "text": "② 混凝土抗剪贡献（经验闭合，不是所给论文原式）\nVc=Vc0(1−exp(−q/qr))\n×[ρc+(1−ρc)exp(−w₀/wc)](1−Dc)\ntrial｜各经验参数需标定",
+        "x": 430,
+        "y": 405,
+        "w": 570,
+        "h": 140,
+        "kind": "box",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "vs",
+        "text": "③ 穿缝箍筋贡献\nεs,j=qg(yj)/ls；σs,j=min(Esεs,j,fy)；Vs=ΣAs,jσs,j\n应变传力长度ls为代码假定；损伤达到1时该筋应力归零\ntrial｜应力上限/离散求和有R22式9a、9c背景",
+        "x": 430,
+        "y": 590,
+        "w": 570,
+        "h": 140,
+        "kind": "box",
+        "color": "EEF0F3"
+      },
+      {
+        "id": "bar",
+        "text": "④ 对每根未失效FRP筋，计算裂缝运动投影\nδj=qg(yj)[sin(θ+αj)−r cos(θ+αj)]/K\n竖向筋αj=90°时：δj=qg(yj)\ntrial｜不是直接照搬S式8",
+        "x": 430,
+        "y": 775,
+        "w": 570,
+        "h": 140,
+        "kind": "box",
+        "color": "EEF0F3"
+      },
+      {
+        "id": "tm",
+        "text": "⑤ 由节点局部龄期更新 τm,i [F式2]\nτm,i=max{0,τm,0[1−kf log₁₀max(Ni,1)]}\nbond_strength；Ni为激活后局部循环数",
+        "x": 430,
+        "y": 960,
+        "w": 570,
+        "h": 115,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "bond",
+        "text": "⑥ 三段黏结包络 [F式1]，令 tr=min(τr,τm,i)\nτenv=τm,i·s/δm                       s≤δm\nτenv=tr+(τm,i−tr)(δu−s)/(δu−δm)   δm<s≤δu\nτenv=tr                            s>δu\nbond：tr取min及历史割线规则为代码补充",
+        "x": 430,
+        "y": 1120,
+        "w": 570,
+        "h": 180,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "anchor",
+        "text": "⑦ 双侧锚固离散求解与节点应力积分\ndT/dx=−pfτ；ds/dx=−T/(EfAf)；自由端T=0\nTi(x)=pf∫[x,Li]τi(ξ)dξ；anchorage / anchor_mesh\n积分原理：F式10、S式10；积分区间按本锚固段改写",
+        "x": 430,
+        "y": 1345,
+        "w": 570,
+        "h": 150,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "compat",
+        "text": "⑧ 满足两侧协调与交点应变连续\ns₁(0)+s₂(0)=δj [S式9d]；εf1(0)=εf2(0) [S式11]\n同一根筋EfAf相同，因此T₁(0)=T₂(0)\n数值迭代求解，未直接使用F式9b或S式9a–c解析解",
+        "x": 430,
+        "y": 1540,
+        "w": 570,
+        "h": 150,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "fail",
+        "text": "⑨ 检查本根筋脱黏、抗拉与用户保护层限值\n失效筋贡献归零；重复④—⑨处理其他筋\ntrial：筋轴力上限为Af·ffu，目前没有FRP本体疲劳律",
+        "x": 430,
+        "y": 1735,
+        "w": 570,
+        "h": 125,
+        "kind": "box",
+        "color": "EEF0F3"
+      },
+      {
+        "id": "sum",
+        "text": "⑩ 汇总竖向FRP抗剪力及整体平衡\nVf=nfaces ΣTj sinαj；V=Vc+Vs+Vf=Q/2\n总分解与E式1同一平衡思想；此处第三项是NSM筋\n不使用ECC覆盖层的 Vef,σ+Vef,τ 分解",
+        "x": 430,
+        "y": 1905,
+        "w": 570,
+        "h": 150,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "ok",
+        "text": "局部求解有效，且\n|V(q)−Q/2|≤forceTolerance？",
+        "x": 430,
+        "y": 2100,
+        "w": 570,
+        "h": 115,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "return",
+        "text": "返回该峰/谷的平衡解：q、材料分量与局部场\n供总控制器判断是否接受循环块",
+        "x": 430,
+        "y": 2265,
+        "w": 570,
+        "h": 100,
+        "kind": "round",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "more",
+        "text": "还有可继续的\n扫描/二分搜索？",
+        "x": 1120,
+        "y": 2100,
+        "w": 330,
+        "h": 115,
+        "kind": "diamond",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "diag",
+        "text": "返回分类诊断\n无指定分支根 / 数值失败 / 分辨率限制\n未把“无解”直接归为抗弯IC脱黏破坏",
+        "x": 1120,
+        "y": 2265,
+        "w": 330,
+        "h": 140,
+        "kind": "box",
+        "color": "FFE2DE"
+      }
+    ],
+    "edges": [
+      {
+        "a": "start",
+        "b": "crack",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "crack",
+        "b": "vc",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "vc",
+        "b": "vs",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "vs",
+        "b": "bar",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "bar",
+        "b": "tm",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "tm",
+        "b": "bond",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "bond",
+        "b": "anchor",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "anchor",
+        "b": "compat",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "compat",
+        "b": "fail",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "fail",
+        "b": "sum",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "sum",
+        "b": "ok",
+        "label": "",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "ok",
+        "b": "return",
+        "label": "是",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      },
+      {
+        "a": "ok",
+        "b": "more",
+        "label": "否",
+        "ap": "r",
+        "bp": "l",
+        "via": []
+      },
+      {
+        "a": "more",
+        "b": "start",
+        "label": "是：调整q",
+        "ap": "r",
+        "bp": "r",
+        "via": [
+          [
+            1510,
+            2157
+          ],
+          [
+            1510,
+            117
+          ]
+        ],
+        "lp": [
+          1420,
+          1000
+        ]
+      },
+      {
+        "a": "more",
+        "b": "diag",
+        "label": "否",
+        "ap": "b",
+        "bp": "t",
+        "via": []
+      }
+    ]
+  },
+  {
+    "name": "公式采用范围与当前实现",
+    "width": 1560,
+    "height": 2100,
+    "nodes": [
+      {
+        "id": "a",
+        "text": "你找出的公式，在当前抗剪代码中如何取舍",
+        "x": 240,
+        "y": 80,
+        "w": 1080,
+        "h": 85,
+        "kind": "round",
+        "color": "E7F0FF"
+      },
+      {
+        "id": "b",
+        "text": "采用：F式(1)三段包络、F式(2)局部疲劳退化\n对应bond.m、bond_strength.m；0.75δm阈值用于active_nodes.m\n注意代码对零龄期、负峰值与残余值另有数值处理",
+        "x": 240,
+        "y": 230,
+        "w": 1080,
+        "h": 150,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "c",
+        "text": "原理改写：F式(10)与S式(10)的黏结应力积分\n原文半跨坐标改为每根筋裂缝交点两侧的局部坐标：Ti(x)=pf∫[x,Li]τi dξ\nS式(9d)、(11)提供双侧滑移协调、交点应变连续的背景",
+        "x": 240,
+        "y": 460,
+        "w": 1080,
+        "h": 170,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "d",
+        "text": "当前未直接实现：F式(9b)解析系数矩阵、S式(9a–c)分段解析解\nanchorage.m实际组装杆单元与黏结刚度，并进行固定点/Newton数值迭代\n两种矩阵写法不能仅因外观相似就标为同一个方程",
+        "x": 240,
+        "y": 710,
+        "w": 1080,
+        "h": 170,
+        "kind": "box",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "e",
+        "text": "当前不纳入：F式(11)的Ps/Pd、F式(13)的半跨Ls/Ld关系\n它们服务于纵向加固的抗弯IC脱黏模型；P也不是本抗剪算例的总加载力Q\n当前代码没有按这些式子计算临界荷载和半跨软化/脱黏长度",
+        "x": 240,
+        "y": 960,
+        "w": 1080,
+        "h": 170,
+        "kind": "box",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "f",
+        "text": "当前不纳入：F式(14)的纵向加固梁挠度\n竖向NSM抗剪不能直接使用该偏心纵向筋的弯曲挠度表达式\n当前的q、裂缝法向开口w与该文挠度w不是同一个物理量",
+        "x": 240,
+        "y": 1210,
+        "w": 1080,
+        "h": 170,
+        "kind": "box",
+        "color": "FFE9CD"
+      },
+      {
+        "id": "g",
+        "text": "平衡思想可采用：E式(1) V=Vc+Vs+Vef\n在本模型改写为V=Vc+Vs+Vf；Vf来自实际NSM筋竖向分量\nE式(2)的Vef,σ+Vef,τ用于ECC连续覆盖层，当前NSM筋代码未实现",
+        "x": 240,
+        "y": 1460,
+        "w": 1080,
+        "h": 180,
+        "kind": "box",
+        "color": "E5F3E9"
+      },
+      {
+        "id": "h",
+        "text": "图示的是当前代码的计算路线，源码没有改变\n若要真正实现F式(9b)、(11)、(13)或S完整裂缝理论，需要另行建模与验证\n本轮不将这些尚未实现的公式画成已经运行的计算步骤",
+        "x": 240,
+        "y": 1730,
+        "w": 1080,
+        "h": 160,
+        "kind": "box",
+        "color": "E7F0FF"
+      }
+    ],
+    "edges": []
+  }
+]

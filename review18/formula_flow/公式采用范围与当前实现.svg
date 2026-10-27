@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="2100" viewBox="0 0 1560 2100">
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9Z" fill="#1685B6"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="780" y="30.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="28" text-anchor="middle" dominant-baseline="middle" fill="#243746">公式采用范围与当前实现</text>
+<rect x="240" y="80" width="1080" height="85" rx="14" fill="#E7F0FF" stroke="#6A7E90"/>
+<text x="780.0" y="122.5" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">你找出的公式，在当前抗剪代码中如何取舍</text>
+<rect x="240" y="230" width="1080" height="150" rx="14" fill="#E5F3E9" stroke="#6A7E90"/>
+<text x="780.0" y="277.28" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">采用：F式(1)三段包络、F式(2)局部疲劳退化</text>
+<text x="780.0" y="305.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">对应bond.m、bond_strength.m；0.75δm阈值用于active_nodes.m</text>
+<text x="780.0" y="332.72" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">注意代码对零龄期、负峰值与残余值另有数值处理</text>
+<rect x="240" y="460" width="1080" height="170" rx="14" fill="#E5F3E9" stroke="#6A7E90"/>
+<text x="780.0" y="517.28" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">原理改写：F式(10)与S式(10)的黏结应力积分</text>
+<text x="780.0" y="545.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">原文半跨坐标改为每根筋裂缝交点两侧的局部坐标：Ti(x)=pf∫[x,Li]τi dξ</text>
+<text x="780.0" y="572.72" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">S式(9d)、(11)提供双侧滑移协调、交点应变连续的背景</text>
+<rect x="240" y="710" width="1080" height="170" rx="14" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="780.0" y="767.28" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">当前未直接实现：F式(9b)解析系数矩阵、S式(9a–c)分段解析解</text>
+<text x="780.0" y="795.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">anchorage.m实际组装杆单元与黏结刚度，并进行固定点/Newton数值迭代</text>
+<text x="780.0" y="822.72" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">两种矩阵写法不能仅因外观相似就标为同一个方程</text>
+<rect x="240" y="960" width="1080" height="170" rx="14" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="780.0" y="1017.28" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">当前不纳入：F式(11)的Ps/Pd、F式(13)的半跨Ls/Ld关系</text>
+<text x="780.0" y="1045.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">它们服务于纵向加固的抗弯IC脱黏模型；P也不是本抗剪算例的总加载力Q</text>
+<text x="780.0" y="1072.72" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">当前代码没有按这些式子计算临界荷载和半跨软化/脱黏长度</text>
+<rect x="240" y="1210" width="1080" height="170" rx="14" fill="#FFE9CD" stroke="#6A7E90"/>
+<text x="780.0" y="1267.28" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">当前不纳入：F式(14)的纵向加固梁挠度</text>
+<text x="780.0" y="1295.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">竖向NSM抗剪不能直接使用该偏心纵向筋的弯曲挠度表达式</text>
+<text x="780.0" y="1322.72" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">当前的q、裂缝法向开口w与该文挠度w不是同一个物理量</text>
+<rect x="240" y="1460" width="1080" height="180" rx="14" fill="#E5F3E9" stroke="#6A7E90"/>
+<text x="780.0" y="1522.28" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">平衡思想可采用：E式(1) V=Vc+Vs+Vef</text>
+<text x="780.0" y="1550.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">在本模型改写为V=Vc+Vs+Vf；Vf来自实际NSM筋竖向分量</text>
+<text x="780.0" y="1577.72" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">E式(2)的Vef,σ+Vef,τ用于ECC连续覆盖层，当前NSM筋代码未实现</text>
+<rect x="240" y="1730" width="1080" height="160" rx="14" fill="#E7F0FF" stroke="#6A7E90"/>
+<text x="780.0" y="1782.28" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">图示的是当前代码的计算路线，源码没有改变</text>
+<text x="780.0" y="1810.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">若要真正实现F式(9b)、(11)、(13)或S完整裂缝理论，需要另行建模与验证</text>
+<text x="780.0" y="1837.72" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" text-anchor="middle" dominant-baseline="middle" fill="#243746">本轮不将这些尚未实现的公式画成已经运行的计算步骤</text>
+<text x="780" y="2055.0" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" text-anchor="middle" dominant-baseline="middle" fill="#243746">R22：DOI尾号0001251，支持穿缝筋应力与离散贡献背景；本轮保留当前源码，仅重画公式对应的计算逻辑。</text>
+</svg>
