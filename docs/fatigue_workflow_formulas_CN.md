@@ -91,7 +91,7 @@ $$N_{f,c}=N_{ref,c}(\Delta\sigma_{ref,c}/\Delta\sigma_c)^{m_c},\qquad D_c^*=\min
 
 ## ⑥ 根据候选记忆重算峰值状态
 
-这一框最重要，但详细公式在cc19_trial、cc19_hard等外部函数中。
+这一框最重要，但详细公式在trial、cc19_hard等外部函数中。
 
 ### 6.1 裂缝运动学（沿用原简化假设）
 

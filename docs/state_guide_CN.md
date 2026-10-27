@@ -15,11 +15,11 @@ $$R(q)=V_c(q)+V_s(q)+V_f(q)-V_{target}=0$$
 | 步骤 | 代码做什么 | 公式或判据 |
 |---|---|---|
 | 1. 输入、限值与搜索域 | 初始化info；检查用户压杆/抗弯上限；区分加载和卸载 | 加载：q在[max(0,previousQ),maxQ]；卸载：q在[0,max(previousQ,slipTolerance)] |
-| 2. 扫描 | 用同一份memory逐点调用cc19_trial；找到上升支变号区间 | R(left)<0且R(right)>0；若某点直接满足力残差也可立即接受 |
+| 2. 扫描 | 用同一份memory逐点调用trial；找到上升支变号区间 | R(left)<0且R(right)>0；若某点直接满足力残差也可立即接受 |
 | 3. 二分 | 调用本文件内bisect_interval，不需要额外.m文件 | middle=(left+right)/2；R(middle)>0则缩右端，否则缩左端 |
 | 4. 结果分类 | 返回平衡状态或具体诊断 | 成功要求abs(R)<=forceTolerance；区间变小本身不代表成功 |
 
-节点力学、本构、局部破坏没有搬进state。每次试算仍由cc19_trial及其依赖计算，试算时不提交memory；疲劳循环接受求解结果后才更新历史。
+节点力学、本构、局部破坏没有搬进state。每次试算仍由trial及其依赖计算，试算时不提交memory；疲劳循环接受求解结果后才更新历史。
 
 ## 真正的局部黏结阶段在哪里
 
@@ -28,7 +28,7 @@ $$R(q)=V_c(q)+V_s(q)+V_f(q)-V_{target}=0$$
 | 弹性黏结段 | 历史最大滑移H<=deltaM | cc19_propagate |
 | 软化段 | deltaM<H<=deltaU | cc19_propagate |
 | 残余黏结段 | H>deltaU | cc19_propagate |
-| 整根NSM退出 | 代码规定的完全锚固脱黏、FRP拉伸上限或保护层上限 | cc19_hard、cc19_trial |
+| 整根NSM退出 | 代码规定的完全锚固脱黏、FRP拉伸上限或保护层上限 | cc19_hard、trial |
 
 局部残余段不自动等于整根完全脱黏。后续如需画阶段演化，应按每根筋/每侧/每节点的zone及失效标志统计，而不是在全梁求根器中人为划分三个区间。
 

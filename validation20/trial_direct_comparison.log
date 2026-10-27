@@ -1,0 +1,23 @@
+kind=strip angle=60 q=0 unload=0: exact match, localOK=1, failed=0
+kind=strip angle=60 q=0.02 unload=0: exact match, localOK=1, failed=0
+kind=strip angle=60 q=0.2 unload=0: exact match, localOK=1, failed=0
+kind=strip angle=60 q=0.5 unload=0: exact match, localOK=1, failed=0
+kind=strip angle=60 q=1 unload=0: exact match, localOK=1, failed=0
+kind=strip angle=60 q=2.5 unload=0: exact match, localOK=1, failed=1
+kind=rod angle=90 q=0 unload=0: exact match, localOK=1, failed=0
+kind=rod angle=90 q=0.02 unload=0: exact match, localOK=1, failed=0
+kind=rod angle=90 q=0.2 unload=0: exact match, localOK=1, failed=0
+kind=rod angle=90 q=0.5 unload=0: exact match, localOK=1, failed=0
+kind=rod angle=90 q=1 unload=0: exact match, localOK=1, failed=0
+kind=rod angle=90 q=2.5 unload=0: exact match, localOK=1, failed=0
+kind=strip angle=60 q=0.3 unload=0: exact match, localOK=1, failed=0
+kind=strip angle=60 q=0.3 unload=0: exact match, localOK=1, failed=0
+kind=strip angle=60 q=0.5 unload=0: exact match, localOK=1, failed=1
+kind=strip angle=60 q=0.5 unload=0: exact match, localOK=1, failed=0
+kind=strip angle=60 q=0.5 unload=0: exact match, localOK=1, failed=0
+kind=strip angle=60 q=0.5 unload=0: exact match, localOK=1, failed=2
+kind=strip angle=60 q=0.5 unload=0: exact match, localOK=1, failed=2
+kind=strip angle=60 q=0.5 unload=0: exact match, localOK=1, failed=2
+kind=strip angle=60 q=0.1 unload=1: exact match, localOK=1, failed=0
+ALL25_DIRECT_CHECKS_PASSED: all result fields exact, including capacity path and invalid-input identifiers.
+error: ignoring const execution_exception& while preparing to exit

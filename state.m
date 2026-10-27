@@ -2,7 +2,7 @@ function [st, info] = state(p, memory, Vtarget, previousQ, unload)
 % STATE Find q such that Vc(q) + Vs(q) + Vnsm(q) = Vtarget.
 % Inputs and outputs match the uploaded cc19_state function.
 % The four sections below are NUMERICAL steps, not material phases.
-% Elastic, softening and residual bond branches are evaluated by cc19_trial.
+% Elastic, softening and residual bond branches are evaluated by trial.
 % All trial evaluations use the same accepted memory; scans do not commit it.
 
 %% Step 1. Prepare the status and define the search interval.
@@ -56,7 +56,7 @@ previousError = NaN;
 previousOpening = NaN;
 for i = 1:numel(trialOpenings)
     q = trialOpenings(i);
-    trialState = cc19_trial(p, q, memory, unload);
+    trialState = trial(p, q, memory, unload);
     if ~trialState.localOK
         info.numericalFailures = info.numericalFailures + 1;
         hasPreviousPoint = false;
@@ -112,7 +112,7 @@ foundRoot = false;
 numericalFailures = 0;
 for iteration = 1:70
     middleQ = (leftQ + rightQ) / 2;
-    trialState = cc19_trial(p, middleQ, memory, unload);
+    trialState = trial(p, middleQ, memory, unload);
     if ~trialState.localOK
         numericalFailures = numericalFailures + 1;
         return
