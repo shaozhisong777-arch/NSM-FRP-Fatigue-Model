@@ -18,6 +18,7 @@
 - [save_snapshot.m](save_snapshot.m)：循环整理快照数据；需同步更新 fatigue_calculate.m；[中文说明](docs/save_snapshot_guide_CN.md)。
 - [capacity_scan.m](capacity_scan.m)：循环搜索有效采样峰值；需同步更新 fatigue_calculate.m；[中文说明](docs/capacity_scan_guide_CN.md)。
 - [prepare_parameters.m](prepare_parameters.m)：输入检查与几何准备，需同步更新 fatigue_calculate.m；[中文说明及p.语法](docs/prepare_parameters_guide_CN.md)。
+- [beam_load.m](beam_load.m)：对称四点加载的弯矩与剪力工具，当前主流程未调用；[中文说明](docs/beam_load_guide_CN.md)。
 - [该文件的论文公式对应表与中文语法说明](docs/fatigue_calculate_guide_CN.md)。
 
 这些已改名文件与尚未改名的其余code20依赖配合使用。下方完整20文件包保留整套旧接口用于追溯；当前逐文件改名版本请使用上述文件。
