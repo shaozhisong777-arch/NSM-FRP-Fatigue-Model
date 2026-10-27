@@ -5,7 +5,7 @@ function out = fatigue_calculate(p)
 % Sources and limitations:
 % [F] Chen et al. (2019), Int. J. Fatigue 126, 174-187,
 %     DOI 10.1016/j.ijfatigue.2019.04.039, Eq. (2) and Section 2.8.
-%     Local bond aging is evaluated through cc19_active/cc19_strength.
+%     Local bond aging is evaluated through active_nodes/cc19_strength.
 % [S] Chen and Cheng (2019), DOI 10.1061/(ASCE)CC.1943-5614.0000953.
 %     Two-sided anchorage is related to Eqs. (9d), (11), in external solvers.
 % [A] Transferring the flexural bond-fatigue law to shear is an adaptation.
@@ -55,7 +55,7 @@ out.snapshots = make_snapshot(p, N, peak, low, memory);
 %% 3. Advance cycles until Nmax or a diagnosed stop.
 while N < p.Nmax
     % [F/A] Activation checks the slip threshold AND a nonzero cyclic range.
-    [activeNodes, ~] = cc19_active(p, peak, low, memory);
+    [activeNodes, ~] = active_nodes(p, peak, low, memory);
     hasActiveNodes = false;
     for bar = 1:p.nBars
         for side = 1:2
