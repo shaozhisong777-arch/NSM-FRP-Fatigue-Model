@@ -1,0 +1,29 @@
+digraph fatigue {
+ graph [rankdir=TB, bgcolor="white", pad="0.2", nodesep="0.25", ranksep="0.3", fontname="Noto Sans CJK SC", label="fatigue_calculate：当前程序流程（编号对应公式说明）", labelloc=t, fontsize=20];
+ node [shape=box, style="rounded,filled", fillcolor="#EDF5F8", color="#16324F", fontname="Noto Sans CJK SC", fontsize=13, margin="0.15,0.08"];
+ edge [color="#536475", fontname="Noto Sans CJK SC", fontsize=11];
+ A [label="① 校验几何和参数，初始化循环/记忆\nN=0，局部龄期=0，损伤=0\n可选：扫描初始承载路径"];
+ B [label="② 求初始峰、谷荷载平衡\nVmax=Qmax/2，Vmin=Qmin/2"];
+ C [shape=diamond,label="两次初始求解成功？",fillcolor="#FFF3DB"];
+ D [label="③ 根据峰谷滑移识别活跃节点\n阈值、实际滑移幅、失效标志"];
+ E [shape=diamond,label="无活跃节点且\n两类S-N均关闭？",fillcolor="#FFF3DB"];
+ E0 [label="沿用不变状态，记录剩余快照\n状态：无活跃退化的runout"];
+ F [label="④ 选择循环块 ΔN\n不越过快照循环数或Nmax"];
+ G [label="⑤ 从已接受的记忆重新提出更新\n活跃节点龄期+ΔN；可选S-N/Miner"];
+ H [label="⑥ 按候选记忆重算峰值平衡\n退化峰值→黏结/锚固→各项剪力→求q"];
+ I [shape=diamond,label="需要缩步且ΔN>1？",fillcolor="#FFF3DB"];
+ I0 [label="⑦ ΔN减半（最小为1）\n丢弃该候选，保留旧记忆"];
+ J [shape=diamond,label="峰值求解成功？",fillcolor="#FFF3DB"];
+ K [label="⑧ 冻结峰值历史，求谷值平衡\n使用割线卸载刚度"];
+ K0 [shape=diamond,label="谷值求解成功？",fillcolor="#FFF3DB"];
+ L [label="⑨ 接受循环块\nN=N+ΔN；提交记忆；存历史/快照"];
+ M [shape=diamond,label="⑩ N达到Nmax？",fillcolor="#FFF3DB"];
+ STOP [label="按具体原因停止\n数值失败≠材料破坏\n域内无平衡≠已标定试验寿命",fillcolor="#FBEAE8"];
+ OUT [label="返回最后已接受结果及状态\n导出/绘图由read_and_calculate调用",fillcolor="#DCEEE7"];
+ A->B->C;C->D[label="是"];C->STOP[label="否"];
+ D->E;E->E0[label="是"];E0->OUT;E->F[label="否"];
+ F->G->H->I;I->I0[label="是"];I0->G;I->J[label="否"];
+ J->K[label="是"];J->STOP[label="否"];K->K0;
+ K0->L[label="是"];K0->STOP[label="否"];L->M;
+ M->OUT[label="是：runout"];M->D[label="否"];STOP->OUT;
+}

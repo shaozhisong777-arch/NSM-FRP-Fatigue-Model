@@ -1,5 +1,7 @@
 # fatigue_calculate：论文依据与新手阅读说明
 
+[查看逐步流程图与全部公式](fatigue_workflow_formulas_CN.md)。
+
 本文件由用户这次上传的 `cc19_run.m` 改写，名称为 `fatigue_calculate.m`，仍然是 `function out = fatigue_calculate(p)`。英文代码注释与中文解释分开保存。原始上传文件不改写；历史版 `code20/cc19_run.m` 保留供对照。
 
 ## 先理解它负责什么
