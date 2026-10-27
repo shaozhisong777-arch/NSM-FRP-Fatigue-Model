@@ -1,0 +1,218 @@
+[
+  {
+    "slide": 1,
+    "title": "主线：局部疲劳怎样推动整体响应",
+    "file": "fatigue_calculate.m",
+    "ranges": [
+      [
+        58,
+        58
+      ],
+      [
+        101,
+        102
+      ],
+      [
+        147,
+        151
+      ]
+    ],
+    "font_size": 15.0,
+    "display_lines": 13
+  },
+  {
+    "slide": 2,
+    "title": "N、Ni、ΔN与memory分别是什么",
+    "file": "fatigue_calculate.m",
+    "ranges": [
+      [
+        191,
+        197
+      ],
+      [
+        201,
+        203
+      ]
+    ],
+    "font_size": 15.0,
+    "display_lines": 11
+  },
+  {
+    "slide": 3,
+    "title": "初始状态：先峰值，再谷值",
+    "file": "fatigue_calculate.m",
+    "ranges": [
+      [
+        29,
+        30
+      ],
+      [
+        44,
+        46
+      ],
+      [
+        52,
+        54
+      ]
+    ],
+    "font_size": 15.0,
+    "display_lines": 10
+  },
+  {
+    "slide": 4,
+    "title": "节点激活：本步哪些位置需要计数",
+    "file": "active_nodes.m",
+    "ranges": [
+      [
+        34,
+        35
+      ],
+      [
+        38,
+        41
+      ],
+      [
+        44,
+        48
+      ]
+    ],
+    "font_size": 15.0,
+    "display_lines": 13
+  },
+  {
+    "slide": 5,
+    "title": "选循环块，并更新候选局部龄期",
+    "file": "fatigue_calculate.m",
+    "ranges": [
+      [
+        95,
+        96
+      ],
+      [
+        232,
+        234
+      ],
+      [
+        240,
+        243
+      ]
+    ],
+    "font_size": 15.0,
+    "display_lines": 14
+  },
+  {
+    "slide": 6,
+    "title": "黏结退化：把Ni转成峰值黏结应力",
+    "file": "bond_strength.m",
+    "ranges": [
+      [
+        17,
+        17
+      ],
+      [
+        20,
+        24
+      ]
+    ],
+    "font_size": 15.0,
+    "display_lines": 8
+  },
+  {
+    "slide": 7,
+    "title": "候选峰值：退化后重新求平衡",
+    "file": "fatigue_calculate.m",
+    "ranges": [
+      [
+        101,
+        109
+      ]
+    ],
+    "font_size": 15.0,
+    "display_lines": 11
+  },
+  {
+    "slide": 8,
+    "title": "循环块减半：从原历史重新试算",
+    "file": "fatigue_calculate.m",
+    "ranges": [
+      [
+        112,
+        121
+      ]
+    ],
+    "font_size": 15.0,
+    "display_lines": 10
+  },
+  {
+    "slide": 9,
+    "title": "谷值通过后，才真正提交循环块",
+    "file": "fatigue_calculate.m",
+    "ranges": [
+      [
+        138,
+        144
+      ],
+      [
+        147,
+        151
+      ]
+    ],
+    "font_size": 15.0,
+    "display_lines": 15
+  },
+  {
+    "slide": 10,
+    "title": "记录结果：历史与快照各有用途",
+    "file": "fatigue_calculate.m",
+    "ranges": [
+      [
+        151,
+        151
+      ],
+      [
+        158,
+        163
+      ],
+      [
+        170,
+        173
+      ]
+    ],
+    "font_size": 15.0,
+    "display_lines": 15
+  },
+  {
+    "slide": 11,
+    "title": "怎样停止：模型限制、数值失败与runout",
+    "file": "fatigue_calculate.m",
+    "ranges": [
+      [
+        125,
+        136
+      ],
+      [
+        167,
+        169
+      ]
+    ],
+    "font_size": 14.99016393442623,
+    "display_lines": 20
+  },
+  {
+    "slide": 12,
+    "title": "默认范围：当前主要启用界面疲劳",
+    "file": "parameters.m",
+    "ranges": [
+      [
+        86,
+        86
+      ],
+      [
+        89,
+        89
+      ]
+    ],
+    "font_size": 15.0,
+    "display_lines": 3
+  }
+]
