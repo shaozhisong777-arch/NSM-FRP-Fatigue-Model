@@ -1,4 +1,4 @@
-function a = truss_reference(p, st)
+function a = shearfoce(p, st)
     % Compare a uniform-strain truss reference with the discrete bar sum.
     % The original code relates this reference to the 2019 single-crack Eq. 12.
     % The state solver uses actual bar intersections, not this reference.

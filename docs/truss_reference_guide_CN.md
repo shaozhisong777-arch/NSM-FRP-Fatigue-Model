@@ -1,10 +1,10 @@
-# truss_reference.m：均匀应变桁架对照
+# shearfoce.m：均匀应变桁架对照
 
-由本次上传的 cc19_shearforce.m 改名、简化。保留 function、p、英文注释及原公式。它不汇总混凝土与箍筋抗剪贡献，而是提供两个 FRP 抗剪对照值。
+由上传的 cc19_shearforce.m 改名、简化，按用户指定拼写命名为 shearfoce.m。保留 function、p、英文注释及原公式。它不汇总混凝土与箍筋抗剪贡献，而是提供两个 FRP 抗剪对照值。
 
 ## 替换范围
 
-下载根目录 truss_reference.m 和 cc19_paper_interpolation.m。后者保留名称和接口，只把实际调用改成 truss_reference，并使用英文注释；以后可单独整理其命名。fatigue_calculate、read_and_calculate、trial 本次不必替换。code20、original_20 保留历史文件；新入口运行时，让根目录在 MATLAB 路径中优先于 code20。
+下载根目录 shearfoce.m 和 cc19_paper_interpolation.m。后者保留名称和接口，只把实际调用改成 shearfoce，并使用英文注释；以后可单独整理其命名。fatigue_calculate、read_and_calculate、trial 本次不必替换。code20、original_20 保留历史文件；新入口运行时，让根目录在 MATLAB 路径中优先于 code20。
 
 ## 原公式
 
