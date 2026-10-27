@@ -302,7 +302,7 @@ function snapshot = make_snapshot(p, N, peak, low, memory)
 snapshot.N = N;
 snapshot.peak = peak;
 snapshot.minimum = low;
-snapshot.field = cc19_sample(p, peak, memory);
+snapshot.field = save_snapshot(p, peak, memory);
 snapshot.memory = memory;
 snapshot.reference = cc19_paper_interpolation(p, peak);
 end

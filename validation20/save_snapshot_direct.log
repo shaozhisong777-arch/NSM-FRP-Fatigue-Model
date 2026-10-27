@@ -1,0 +1,2 @@
+ALL10_SNAPSHOT_CHECKS_PASSED: exact fields, row order, skipped bars, no bars/stirrups and optional memory.
+error: ignoring const execution_exception& while preparing to exit

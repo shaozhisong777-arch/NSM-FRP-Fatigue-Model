@@ -14,7 +14,8 @@
 - [active_nodes.m](active_nodes.m)：逐筋、逐侧、逐节点判断疲劳活跃状态；需同步更新 fatigue_calculate.m；[中文说明](docs/active_nodes_guide_CN.md)。
 - [bond_strength.m](bond_strength.m)：逐节点计算退化峰值；需同步更新 trial.m；[中文说明](docs/bond_strength_guide_CN.md)。
 - [anchor_mesh.m](anchor_mesh.m)：锚固网格与积分权重，避免与 MATLAB 的 mesh 绘图函数重名；需同步更新 anchorage.m；[中文说明及24单元的含义](docs/anchor_mesh_guide_CN.md)。
-- [crack_deformation.m](crack_deformation.m)：裂缝张开/滑移分布；需同步更新 trial.m 与根目录 cc19_sample.m；[中文说明](docs/crack_deformation_guide_CN.md)。
+- [crack_deformation.m](crack_deformation.m)：裂缝张开/滑移分布；当前由 trial.m 与 save_snapshot.m 调用；[中文说明](docs/crack_deformation_guide_CN.md)。
+- [save_snapshot.m](save_snapshot.m)：循环整理快照数据；需同步更新 fatigue_calculate.m；[中文说明](docs/save_snapshot_guide_CN.md)。
 - [该文件的论文公式对应表与中文语法说明](docs/fatigue_calculate_guide_CN.md)。
 
 这些已改名文件与尚未改名的其余code20依赖配合使用。下方完整20文件包保留整套旧接口用于追溯；当前逐文件改名版本请使用上述文件。
