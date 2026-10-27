@@ -12,7 +12,7 @@ end
 if ~isscalar(q) || ~isfinite(q) || q < 0
     error('cc19:trial', 'q must be nonnegative.');
 end
-crack = cc19_curvature_integrals(p, q);
+crack = crack_deformation(p, q);
 nextMemory = memory;
 
 %% 2. Concrete shear contribution: inherited empirical closure.
