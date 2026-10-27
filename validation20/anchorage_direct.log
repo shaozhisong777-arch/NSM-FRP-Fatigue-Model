@@ -1,0 +1,14 @@
+warning: matrix singular to machine precision
+warning: called from
+    uploaded_anchor_reference>cc19_anchor_newton at line 121 column 13
+    uploaded_anchor_reference at line 70 column 10
+    /tmp/check_anchor.m at line 11 column 5
+
+warning: matrix singular to machine precision
+warning: called from
+    anchorage>cc19_anchor_newton at line 156 column 13
+    anchorage at line 100 column 10
+    /tmp/check_anchor.m at line 12 column 5
+
+ALL48_ANCHOR_CHECKS_PASSED: exact fields, unequal lengths, loading/unloading and forced Newton fallback.
+error: ignoring const execution_exception& while preparing to exit
